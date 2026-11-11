@@ -1010,8 +1010,12 @@ body.phonemode.kb .tabbar,body.phonemode.kb .actas{display:none}
 .jrow .jtab{margin:0}
 body.tabB .jrow .jtab{padding:2px 0}
 .appver{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);text-align:center}.appver .btn{margin:0}
+/* app-like scrolling: the document never scrolls; only real scroll boxes do, and they don't hand the drag to the page */
+html:has(body.phonemode){height:100%;overflow:hidden;overscroll-behavior:none}
+body.phonemode{position:fixed;inset:0;overflow:hidden;width:100%}
+body.phonemode .scroll,body.phonemode #msgs,body.phonemode .sheet,body.phonemode .gcar,body.phonemode .jscroll{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 </style></head>
-<body><main id="app" aria-live="polite"></main><script>window.BOZO_BUILD="Nov 11 \u00b7 5:10 AM"</script>
+<body><main id="app" aria-live="polite"></main><script>window.BOZO_BUILD="Nov 11 \u00b7 3:56 PM"</script>
 <script>/* Real DraftKings data pulled once for the demo (The Odds API, 10 credits). */
 window.BOZO_SEED = {"pulledAt":"2026-11-04T00:22:53Z","events":{"nba":[{"id":"91df86557819598ca270ba35410cfcfa","sport_key":"basketball_nba","commence_time":"2026-11-05T00:00:00Z","home_team":"Detroit Pistons","away_team":"Philadelphia 76ers"},{"id":"05200821a78e4f6db8131cff1652550f","sport_key":"basketball_nba","commence_time":"2026-11-05T00:10:00Z","home_team":"Washington Wizards","away_team":"Atlanta Hawks"},{"id":"6b33f8632d4dd100cba8453db82213fa","sport_key":"basketball_nba","commence_time":"2026-11-05T00:30:00Z","home_team":"Brooklyn Nets","away_team":"Charlotte Hornets"},{"id":"1cb12166c3eda270d40cc65b9b34459a","sport_key":"basketball_nba","commence_time":"2026-11-05T00:40:00Z","home_team":"Boston Celtics","away_team":"Milwaukee Bucks"},{"id":"87d2b814c3f0d3691e9cebbf2de76295","sport_key":"basketball_nba","commence_time":"2026-11-05T00:40:00Z","home_team":"New York Knicks","away_team":"Chicago Bulls"},{"id":"38fdb396939e8aabebd93cb509618927","sport_key":"basketball_nba","commence_time":"2026-11-05T01:00:00Z","home_team":"Oklahoma City Thunder","away_team":"Cleveland Cavaliers"},{"id":"3469f522ffcacb13f88e6cd297adc110","sport_key":"basketball_nba","commence_time":"2026-11-05T01:10:00Z","home_team":"Memphis Grizzlies","away_team":"Indiana Pacers"},{"id":"0b5966b7b96eb844618eea8f215a0c71","sport_key":"basketball_nba","commence_time":"2026-11-05T01:10:00Z","home_team":"New Orleans Pelicans","away_team":"Utah Jazz"},{"id":"b2557f74f4d7675ed3b76a4a064e0bc9","sport_key":"basketball_nba","commence_time":"2026-11-05T01:30:00Z","home_team":"Houston Rockets","away_team":"Minnesota Timberwolves"},{"id":"50bdc20ea9ea3c88d4bfa261b9b2307e","sport_key":"basketball_nba","commence_time":"2026-11-05T02:00:00Z","home_team":"Denver Nuggets","away_team":"Toronto Raptors"},{"id":"d3d91c40111aca301d41c9cdb9d64608","sport_key":"basketball_nba","commence_time":"2026-11-05T02:00:00Z","home_team":"Phoenix Suns","away_team":"Portland Trail Blazers"},{"id":"6b25f3932db93d4c5ad7658def2645bf","sport_key":"basketball_nba","commence_time":"2026-11-05T02:30:00Z","home_team":"San Antonio Spurs","away_team":"Dallas Mavericks"},{"id":"29988f1011d7738962e13e0a0beb693f","sport_key":"basketball_nba","commence_time":"2026-11-05T03:10:00Z","home_team":"Sacramento Kings","away_team":"Los Angeles Lakers"},{"id":"72c786e70ad9360fdc41e4c2a50fa788","sport_key":"basketball_nba","commence_time":"2026-11-05T03:40:00Z","home_team":"Los Angeles Clippers","away_team":"Miami Heat"},{"id":"a6555e8b7252dfb32f1817fc8c59ad83","sport_key":"basketball_nba","commence_time":"2026-12-25T17:00:00Z","home_team":"New York Knicks","away_team":"San Antonio Spurs"},{"id":"d60e7fc0690e4dff121a086395e24de4","sport_key":"basketball_nba","commence_time":"2026-12-25T19:30:00Z","home_team":"Boston Celtics","away_team":"Miami Heat"},{"id":"dfd908bad3a3bfcae9e08bf128273b18","sport_key":"basketball_nba","commence_time":"2026-12-25T22:00:00Z","home_team":"Los Angeles Lakers","away_team":"Philadelphia 76ers"},{"id":"85a2379bc49135f2759709e55af0c4c6","sport_key":"basketball_nba","commence_time":"2026-12-26T03:30:00Z","home_team":"Golden State Warriors","away_team":"Denver Nuggets"}],"nfl":[{"id":"c75744790b7acf6260c78ba5e739c0e5","sport_key":"americanfootball_nfl","commence_time":"2026-11-06T01:15:00Z","home_team":"Baltimore Ravens","away_team":"Jacksonville Jaguars"},{"id":"dc56d980f527ffeef89940133b211b13","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T14:30:00Z","home_team":"Atlanta Falcons","away_team":"Cincinnati Bengals"},{"id":"014282b888c741b7d70c857c09f40aa7","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T18:00:00Z","home_team":"Carolina Panthers","away_team":"Denver Broncos"},{"id":"e571bab6736f9338130a78a4f75c3231","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T18:00:00Z","home_team":"New Orleans Saints","away_team":"Cleveland Browns"},{"id":"415fc42e72888c63e82f7bce24c65391","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T18:00:00Z","home_team":"Indianapolis Colts","away_team":"Dallas Cowboys"},{"id":"44d8c37868b700e90f816db7c5df5cdd","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T18:00:00Z","home_team":"Miami Dolphins","away_team":"Detroit Lions"},{"id":"e354e6a04b1cb9c96e549b863debb92e","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T18:00:00Z","home_team":"Kansas City Chiefs","away_team":"New York Jets"},{"id":"89de07377e0aa8ffaa2ae6a7dc0855cc","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T18:00:00Z","home_team":"Washington Commanders","away_team":"Los Angeles Rams"},{"id":"fe93e6ab1e553c0169936a0a983c324f","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T18:00:00Z","home_team":"Philadelphia Eagles","away_team":"New York Giants"},{"id":"39aeac43cea7b12558b91cdab1255a10","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T21:05:00Z","home_team":"Los Angeles Chargers","away_team":"Houston Texans"},{"id":"ac9d38a18d5c92814233a31aa9a48d78","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T21:05:00Z","home_team":"San Francisco 49ers","away_team":"Las Vegas Raiders"},{"id":"240e23b02b1e3fef655d04a286b5a623","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T21:25:00Z","home_team":"Seattle Seahawks","away_team":"Arizona Cardinals"},{"id":"2922c573ec3df8466c4a34975e446898","sport_key":"americanfootball_nfl","commence_time":"2026-11-08T21:25:00Z","home_team":"New England Patriots","away_team":"Green Bay Packers"},{"id":"9760d8f19f84bfee300a74ceb656c95d","sport_key":"americanfootball_nfl","commence_time":"2026-11-09T01:20:00Z","home_team":"Chicago Bears","away_team":"Tampa Bay Buccaneers"},{"id":"17ad7eff2f7875e20a8109abe40470e3","sport_key":"americanfootball_nfl","commence_time":"2026-11-10T01:15:00Z","home_team":"Minnesota Vikings","away_team":"Buffalo Bills"},{"id":"74d39e19225caf211ad2c8eb4110179f","sport_key":"americanfootball_nfl","commence_time":"2026-11-13T01:15:00Z","home_team":"New York Giants","away_team":"Washington Commanders"},{"id":"b8c10fdf1e0ac4e13deee7f7c0af0b0b","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T14:30:00Z","home_team":"Detroit Lions","away_team":"New England Patriots"},{"id":"3c71d515b726f1096aabb435badb83fd","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T18:00:00Z","home_team":"Atlanta Falcons","away_team":"Kansas City Chiefs"},{"id":"1057d50949844ddf483da9c8c20354be","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T18:00:00Z","home_team":"New York Jets","away_team":"Buffalo Bills"},{"id":"e5aa20e1364dd639f042af1c2281bbe2","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T18:00:00Z","home_team":"New Orleans Saints","away_team":"Carolina Panthers"},{"id":"be0e03cc42fbc9b6962467b22c7bf9dd","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T18:00:00Z","home_team":"Cleveland Browns","away_team":"Houston Texans"},{"id":"5d8d85473b87f772a979ecf294acab94","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T18:00:00Z","home_team":"Green Bay Packers","away_team":"Minnesota Vikings"},{"id":"b5700b4d938fd94429f60d4622cc9c0a","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T18:00:00Z","home_team":"Indianapolis Colts","away_team":"Miami Dolphins"},{"id":"28800df7e768ecec14f116454d560f9b","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T18:00:00Z","home_team":"Tennessee Titans","away_team":"Jacksonville Jaguars"},{"id":"6c932a965110f3f89ec4a5f1a6ac256e","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T21:05:00Z","home_team":"Arizona Cardinals","away_team":"Los Angeles Rams"},{"id":"6079a5cbabf99b265a17edfc92a1da60","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T21:05:00Z","home_team":"Las Vegas Raiders","away_team":"Seattle Seahawks"},{"id":"7627192fd89b05120ab6c712aa23fd81","sport_key":"americanfootball_nfl","commence_time":"2026-11-15T21:25:00Z","home_team":"Dallas Cowboys","away_team":"San Francisco 49ers"},{"id":"48e497c230e6c9afcb3b600091d28e17","sport_key":"americanfootball_nfl","commence_time":"2026-11-16T01:20:00Z","home_team":"Cincinnati Bengals","away_team":"Pittsburgh Steelers"},{"id":"35e3bdff558b5d1506251e814986f164","sport_key":"americanfootball_nfl","commence_time":"2026-11-17T01:15:00Z","home_team":"Baltimore Ravens","away_team":"Los Angeles Chargers"}]},"odds":{"6b33f8632d4dd100cba8453db82213fa":{"id":"6b33f8632d4dd100cba8453db82213fa","sport_key":"basketball_nba","sport_title":"NBA","commence_time":"2026-11-05T00:30:00Z","home_team":"Brooklyn Nets","away_team":"Charlotte Hornets","bookmakers":[{"key":"draftkings","title":"DraftKings","markets":[{"key":"h2h","last_update":"2026-11-04T00:22:53Z","outcomes":[{"name":"Brooklyn Nets","price":133},{"name":"Charlotte Hornets","price":-158}]},{"key":"spreads","last_update":"2026-11-04T00:22:53Z","outcomes":[{"name":"Brooklyn Nets","price":-110,"point":3.5},{"name":"Charlotte Hornets","price":-110,"point":-3.5}]},{"key":"totals","last_update":"2026-11-04T00:22:53Z","outcomes":[{"name":"Over","price":-114,"point":212.5},{"name":"Under","price":-106,"point":212.5}]},{"key":"player_points","last_update":"2026-11-04T00:22:49Z","outcomes":[{"name":"Over","description":"Michael Porter Jr","price":-119,"point":21.5},{"name":"Under","description":"Michael Porter Jr","price":-107,"point":21.5},{"name":"Over","description":"Julius Randle","price":-102,"point":19.5},{"name":"Under","description":"Julius Randle","price":-126,"point":19.5}]}]}]},"1cb12166c3eda270d40cc65b9b34459a":{"id":"1cb12166c3eda270d40cc65b9b34459a","sport_key":"basketball_nba","sport_title":"NBA","commence_time":"2026-11-05T00:40:00Z","home_team":"Boston Celtics","away_team":"Milwaukee Bucks","bookmakers":[{"key":"draftkings","title":"DraftKings","markets":[{"key":"h2h","last_update":"2026-11-04T00:22:53Z","outcomes":[{"name":"Boston Celtics","price":-514},{"name":"Milwaukee Bucks","price":391}]}]}]},"c75744790b7acf6260c78ba5e739c0e5":{"id":"c75744790b7acf6260c78ba5e739c0e5","sport_key":"americanfootball_nfl","sport_title":"NFL","commence_time":"2026-11-06T01:15:00Z","home_team":"Baltimore Ravens","away_team":"Jacksonville Jaguars","bookmakers":[{"key":"draftkings","title":"DraftKings","markets":[{"key":"h2h","last_update":"2026-11-04T00:23:47Z","outcomes":[{"name":"Baltimore Ravens","price":390},{"name":"Jacksonville Jaguars","price":-520}]},{"key":"spreads","last_update":"2026-11-04T00:23:47Z","outcomes":[{"name":"Baltimore Ravens","price":-112,"point":10.0},{"name":"Jacksonville Jaguars","price":-108,"point":-10.0}]},{"key":"player_reception_yds","last_update":"2026-11-04T00:23:17Z","outcomes":[{"name":"Over","description":"Parker Washington","price":-112,"point":62.5},{"name":"Under","description":"Parker Washington","price":-112,"point":62.5},{"name":"Over","description":"Zay Flowers","price":-112,"point":44.5},{"name":"Under","description":"Zay Flowers","price":-112,"point":44.5},{"name":"Over","description":"Jakobi Meyers","price":-115,"point":40.5},{"name":"Under","description":"Jakobi Meyers","price":-109,"point":40.5},{"name":"Over","description":"Brenton Strange","price":-111,"point":36.5},{"name":"Under","description":"Brenton Strange","price":-113,"point":36.5},{"name":"Over","description":"Mark Andrews","price":-113,"point":21.5},{"name":"Under","description":"Mark Andrews","price":-111,"point":21.5},{"name":"Over","description":"Ja'Kobi Lane","price":-110,"point":16.5},{"name":"Under","description":"Ja'Kobi Lane","price":-114,"point":16.5},{"name":"Over","description":"Justice Hill","price":-114,"point":14.5},{"name":"Under","description":"Justice Hill","price":-110,"point":14.5},{"name":"Over","description":"Rashod Bateman","price":-114,"point":14.5},{"name":"Under","description":"Rashod Bateman","price":-110,"point":14.5},{"name":"Over","description":"Brian Thomas Jr","price":-110,"point":11.5},{"name":"Under","description":"Brian Thomas Jr","price":-114,"point":11.5},{"name":"Over","description":"Josh Cuevas","price":-109,"point":10.5},{"name":"Under","description":"Josh Cuevas","price":-115,"point":10.5},{"name":"Over","description":"Josh Cameron","price":-117,"point":9.5},{"name":"Under","description":"Josh Cameron","price":-107,"point":9.5},{"name":"Over","description":"Travis Hunter","price":-108,"point":9.5},{"name":"Under","description":"Travis Hunter","price":-116,"point":9.5},{"name":"Over","description":"Derrick Henry","price":-104,"point":8.5},{"name":"Under","description":"Derrick Henry","price":-121,"point":8.5},{"name":"Over","description":"Nate Boerkircher","price":-111,"point":7.5},{"name":"Under","description":"Nate Boerkircher","price":-113,"point":7.5}]},{"key":"player_reception_yds_alternate","last_update":"2026-11-04T00:23:17Z","outcomes":[{"name":"Over","description":"Parker Washington","price":-2300,"point":14.5},{"name":"Over","description":"Parker Washington","price":-1320,"point":19.5},{"name":"Over","description":"Parker Washington","price":-870,"point":24.5},{"name":"Over","description":"Parker Washington","price":-610,"point":29.5},{"name":"Over","description":"Parker Washington","price":-332,"point":39.5},{"name":"Over","description":"Parker Washington","price":-198,"point":49.5},{"name":"Over","description":"Parker Washington","price":-127,"point":59.5},{"name":"Over","description":"Parker Washington","price":-112,"point":62.5},{"name":"Over","description":"Parker Washington","price":116,"point":69.5},{"name":"Over","description":"Parker Washington","price":168,"point":79.5},{"name":"Over","description":"Parker Washington","price":245,"point":89.5},{"name":"Over","description":"Parker Washington","price":349,"point":99.5},{"name":"Over","description":"Parker Washington","price":491,"point":109.5},{"name":"Over","description":"Parker Washington","price":690,"point":119.5},{"name":"Over","description":"Parker Washington","price":970,"point":129.5},{"name":"Over","description":"Parker Washington","price":1360,"point":139.5},{"name":"Over","description":"Parker Washington","price":1940,"point":149.5},{"name":"Over","description":"Parker Washington","price":2600,"point":159.5},{"name":"Over","description":"Parker Washington","price":3500,"point":169.5},{"name":"Over","description":"Zay Flowers","price":-1380,"point":9.5},{"name":"Over","description":"Zay Flowers","price":-780,"point":14.5},{"name":"Over","description":"Zay Flowers","price":-491,"point":19.5},{"name":"Over","description":"Zay Flowers","price":-347,"point":24.5},{"name":"Over","description":"Zay Flowers","price":-253,"point":29.5},{"name":"Over","description":"Zay Flowers","price":-145,"point":39.5},{"name":"Over","description":"Zay Flowers","price":-114,"point":44.5},{"name":"Over","description":"Zay Flowers","price":111,"point":49.5},{"name":"Over","description":"Zay Flowers","price":172,"point":59.5},{"name":"Over","description":"Zay Flowers","price":261,"point":69.5},{"name":"Over","description":"Zay Flowers","price":399,"point":79.5},{"name":"Over","description":"Zay Flowers","price":586,"point":89.5},{"name":"Over","description":"Zay Flowers","price":860,"point":99.5},{"name":"Over","description":"Zay Flowers","price":1220,"point":109.5},{"name":"Over","description":"Zay Flowers","price":1760,"point":119.5},{"name":"Over","description":"Zay Flowers","price":2500,"point":129.5},{"name":"Over","description":"Zay Flowers","price":3500,"point":139.5},{"name":"Over","description":"Jakobi Meyers","price":-1040,"point":9.5},{"name":"Over","description":"Jakobi Meyers","price":-610,"point":14.5},{"name":"Over","description":"Jakobi Meyers","price":-401,"point":19.5},{"name":"Over","description":"Jakobi Meyers","price":-281,"point":24.5},{"name":"Over","description":"Jakobi Meyers","price":-203,"point":29.5},{"name":"Over","description":"Jakobi Meyers","price":-119,"point":39.5},{"name":"Over","description":"Jakobi Meyers","price":-114,"point":40.5},{"name":"Over","description":"Jakobi Meyers","price":133,"point":49.5},{"name":"Over","description":"Jakobi Meyers","price":207,"point":59.5},{"name":"Over","description":"Jakobi Meyers","price":320,"point":69.5},{"name":"Over","description":"Jakobi Meyers","price":479,"point":79.5},{"name":"Over","description":"Jakobi Meyers","price":710,"point":89.5},{"name":"Over","description":"Jakobi Meyers","price":1080,"point":99.5},{"name":"Over","description":"Jakobi Meyers","price":1580,"point":109.5},{"name":"Over","description":"Jakobi Meyers","price":2200,"point":119.5},{"name":"Over","description":"Jakobi Meyers","price":3000,"point":129.5},{"name":"Over","description":"Jakobi Meyers","price":4000,"point":139.5},{"name":"Over","description":"Brenton Strange","price":-1700,"point":9.5},{"name":"Over","description":"Brenton Strange","price":-740,"point":14.5},{"name":"Over","description":"Brenton Strange","price":-413,"point":19.5},{"name":"Over","description":"Brenton Strange","price":-262,"point":24.5},{"name":"Over","description":"Brenton Strange","price":-179,"point":29.5},{"name":"Over","description":"Brenton Strange","price":-112,"point":36.5},{"name":"Over","description":"Brenton Strange","price":108,"point":39.5},{"name":"Over","description":"Brenton Strange","price":191,"point":49.5},{"name":"Over","description":"Brenton Strange","price":322,"point":59.5},{"name":"Over","description":"Brenton Strange","price":546,"point":69.5},{"name":"Over","description":"Brenton Strange","price":890,"point":79.5},{"name":"Over","description":"Brenton Strange","price":1340,"point":89.5},{"name":"Over","description":"Brenton Strange","price":2000,"point":99.5},{"name":"Over","description":"Brenton Strange","price":2900,"point":109.5},{"name":"Over","description":"Ja'Kobi Lane","price":-173,"point":9.5},{"name":"Over","description":"Ja'Kobi Lane","price":-124,"point":14.5},{"name":"Over","description":"Ja'Kobi Lane","price":-110,"point":16.5},{"name":"Over","description":"Ja'Kobi Lane","price":109,"point":19.5},{"name":"Over","description":"Ja'Kobi Lane","price":146,"point":24.5},{"name":"Over","description":"Ja'Kobi Lane","price":185,"point":29.5},{"name":"Over","description":"Ja'Kobi Lane","price":285,"point":39.5},{"name":"Over","description":"Ja'Kobi Lane","price":437,"point":49.5},{"name":"Over","description":"Ja'Kobi Lane","price":650,"point":59.5},{"name":"Over","description":"Ja'Kobi Lane","price":930,"point":69.5},{"name":"Over","description":"Ja'Kobi Lane","price":1340,"point":79.5},{"name":"Over","description":"Ja'Kobi Lane","price":1860,"point":89.5},{"name":"Over","description":"Ja'Kobi Lane","price":2500,"point":99.5},{"name":"Over","description":"Ja'Kobi Lane","price":3300,"point":109.5},{"name":"Over","description":"Mark Andrews","price":-363,"point":9.5},{"name":"Over","description":"Mark Andrews","price":-205,"point":14.5},{"name":"Over","description":"Mark Andrews","price":-132,"point":19.5},{"name":"Over","description":"Mark Andrews","price":-113,"point":21.5},{"name":"Over","description":"Mark Andrews","price":111,"point":24.5},{"name":"Over","description":"Mark Andrews","price":160,"point":29.5},{"name":"Over","description":"Mark Andrews","price":302,"point":39.5},{"name":"Over","description":"Mark Andrews","price":539,"point":49.5},{"name":"Over","description":"Mark Andrews","price":940,"point":59.5},{"name":"Over","description":"Mark Andrews","price":1500,"point":69.5},{"name":"Over","description":"Mark Andrews","price":2300,"point":79.5},{"name":"Over","description":"Mark Andrews","price":3400,"point":89.5},{"name":"Over","description":"Rashod Bateman","price":-178,"point":9.5},{"name":"Over","description":"Rashod Bateman","price":-114,"point":14.5},{"name":"Over","description":"Rashod Bateman","price":132,"point":19.5},{"name":"Over","description":"Rashod Bateman","price":186,"point":24.5},{"name":"Over","description":"Rashod Bateman","price":256,"point":29.5},{"name":"Over","description":"Rashod Bateman","price":457,"point":39.5},{"name":"Over","description":"Rashod Bateman","price":770,"point":49.5},{"name":"Over","description":"Rashod Bateman","price":1240,"point":59.5},{"name":"Over","description":"Rashod Bateman","price":1880,"point":69.5},{"name":"Over","description":"Rashod Bateman","price":2800,"point":79.5},{"name":"Over","description":"Brian Thomas Jr","price":-131,"point":9.5},{"name":"Over","description":"Brian Thomas Jr","price":-110,"point":11.5},{"name":"Over","description":"Brian Thomas Jr","price":117,"point":14.5},{"name":"Over","description":"Brian Thomas Jr","price":178,"point":19.5},{"name":"Over","description":"Brian Thomas Jr","price":254,"point":24.5},{"name":"Over","description":"Brian Thomas Jr","price":348,"point":29.5},{"name":"Over","description":"Brian Thomas Jr","price":599,"point":39.5},{"name":"Over","description":"Brian Thomas Jr","price":980,"point":49.5},{"name":"Over","description":"Brian Thomas Jr","price":1580,"point":59.5},{"name":"Over","description":"Brian Thomas Jr","price":2500,"point":69.5},{"name":"Over","description":"Brian Thomas Jr","price":3700,"point":79.5},{"name":"Over","description":"Travis Hunter","price":-108,"point":9.5},{"name":"Over","description":"Travis Hunter","price":143,"point":14.5},{"name":"Over","description":"Travis Hunter","price":208,"point":19.5},{"name":"Over","description":"Travis Hunter","price":289,"point":24.5},{"name":"Over","description":"Travis Hunter","price":386,"point":29.5},{"name":"Over","description":"Travis Hunter","price":670,"point":39.5},{"name":"Over","description":"Travis Hunter","price":1120,"point":49.5},{"name":"Over","description":"Travis Hunter","price":1740,"point":59.5},{"name":"Over","description":"Travis Hunter","price":2600,"point":69.5},{"name":"Over","description":"Travis Hunter","price":3700,"point":79.5},{"name":"Over","description":"Justice Hill","price":-200,"point":9.5},{"name":"Over","description":"Justice Hill","price":-114,"point":14.5},{"name":"Over","description":"Justice Hill","price":135,"point":19.5},{"name":"Over","description":"Justice Hill","price":203,"point":24.5},{"name":"Over","description":"Justice Hill","price":295,"point":29.5},{"name":"Over","description":"Justice Hill","price":585,"point":39.5},{"name":"Over","description":"Justice Hill","price":1040,"point":49.5},{"name":"Over","description":"Justice Hill","price":1760,"point":59.5},{"name":"Over","description":"Justice Hill","price":2800,"point":69.5},{"name":"Over","description":"Justice Hill","price":4000,"point":79.5},{"name":"Over","description":"Josh Cuevas","price":-122,"point":9.5},{"name":"Over","description":"Josh Cuevas","price":-109,"point":10.5},{"name":"Over","description":"Josh Cuevas","price":131,"point":14.5},{"name":"Over","description":"Josh Cuevas","price":197,"point":19.5},{"name":"Over","description":"Josh Cuevas","price":277,"point":24.5},{"name":"Over","description":"Josh Cuevas","price":394,"point":29.5},{"name":"Over","description":"Josh Cuevas","price":720,"point":39.5},{"name":"Over","description":"Josh Cuevas","price":1280,"point":49.5},{"name":"Over","description":"Josh Cuevas","price":2100,"point":59.5},{"name":"Over","description":"Josh Cuevas","price":3200,"point":69.5},{"name":"Over","description":"Nate Boerkircher","price":-112,"point":7.5},{"name":"Over","description":"Nate Boerkircher","price":111,"point":9.5},{"name":"Over","description":"Nate Boerkircher","price":178,"point":14.5},{"name":"Over","description":"Nate Boerkircher","price":256,"point":19.5},{"name":"Over","description":"Nate Boerkircher","price":349,"point":24.5},{"name":"Over","description":"Nate Boerkircher","price":467,"point":29.5},{"name":"Over","description":"Nate Boerkircher","price":830,"point":39.5},{"name":"Over","description":"Nate Boerkircher","price":1400,"point":49.5},{"name":"Over","description":"Nate Boerkircher","price":2100,"point":59.5},{"name":"Over","description":"Nate Boerkircher","price":3200,"point":69.5},{"name":"Over","description":"Josh Cameron","price":-117,"point":9.5},{"name":"Over","description":"Josh Cameron","price":143,"point":14.5},{"name":"Over","description":"Josh Cameron","price":214,"point":19.5},{"name":"Over","description":"Josh Cameron","price":300,"point":24.5},{"name":"Over","description":"Josh Cameron","price":425,"point":29.5},{"name":"Over","description":"Josh Cameron","price":800,"point":39.5},{"name":"Over","description":"Josh Cameron","price":1400,"point":49.5},{"name":"Over","description":"Josh Cameron","price":2300,"point":59.5},{"name":"Over","description":"Josh Cameron","price":3500,"point":69.5},{"name":"Over","description":"Derrick Henry","price":-104,"point":8.5},{"name":"Over","description":"Derrick Henry","price":112,"point":9.5},{"name":"Over","description":"Derrick Henry","price":194,"point":14.5},{"name":"Over","description":"Derrick Henry","price":311,"point":19.5},{"name":"Over","description":"Derrick Henry","price":463,"point":24.5},{"name":"Over","description":"Derrick Henry","price":700,"point":29.5},{"name":"Over","description":"Derrick Henry","price":1440,"point":39.5},{"name":"Over","description":"Derrick Henry","price":2600,"point":49.5}]}]}]},"91df86557819598ca270ba35410cfcfa":{"id":"91df86557819598ca270ba35410cfcfa","sport_key":"basketball_nba","sport_title":"NBA","commence_time":"2026-11-05T00:00:00Z","home_team":"Detroit Pistons","away_team":"Philadelphia 76ers","bookmakers":[{"key":"draftkings","title":"DraftKings","markets":[{"key":"h2h","last_update":"2026-11-04T00:25:16Z","outcomes":[{"name":"Detroit Pistons","price":-130},{"name":"Philadelphia 76ers","price":110}]}]}]}}};
 </script>
@@ -3724,9 +3728,9 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   /* Group colors: picked automatically in order, changeable in group settings. */
   const GCOL = ['#2f5d4a', '#3b5b8c', '#8a4b2f', '#6a4c93', '#2f7a78', '#9a6a1a', '#8c3b55', '#4a5560'];
   const ORDER = ['simmy', 'nate', 'mike', 'john', 'dre', 'sam'];
-  const uname = id => '@' + (((G && G.people[id]) || PEOPLE[id] || {}).user || id);
-  const fullName = id => { const p = (G && G.people[id]) || PEOPLE[id] || {}; return [p.name, p.last].filter(Boolean).join(' '); };
-  const nm = id => (G && G.groupProfile && G.groupProfile[id] && G.groupProfile[id].name) || ((G && G.people[id]) || PEOPLE[id] || {}).name || id;
+  const uname = id0 => { const id = ownerOf(id0); return '@' + (((G && G.people[id]) || PEOPLE[id] || {}).user || id); };
+  const fullName = id0 => { const id = ownerOf(id0), p = (G && G.people[id]) || PEOPLE[id] || {}; return [p.name, p.last].filter(Boolean).join(' '); };
+  const nm = id0 => { const id = ownerOf(id0); return (G && G.groupProfile && G.groupProfile[id] && G.groupProfile[id].name) || ((G && G.people[id]) || PEOPLE[id] || {}).name || id; };
 
   // ---------- real DraftKings seed (pulled once) -> pick entries shaped exactly like pick.js saves
   const allEvents = () => [...SEED.events.nba, ...SEED.events.nfl];
@@ -3760,6 +3764,15 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   const firstGame = () => Date.parse(ev(EV.chabkn).commence_time);
 
 
+  function ownerOf(k) { return String(k).split('~')[0]; }
+  function legNo(k) { return Number(String(k).split('~')[1] || 1); }
+  function legsPer(t) { return Math.max(1, Math.min(3, Number(t && t.legsPer) || 1)); }
+  function multi(t) { return legsPer(t) > 1; }
+  function legKeysOf(t, id) { return Array.from({ length: legsPer(t) }, (_, i) => i ? id + '~' + (i + 1) : id); }
+  function legKeys(t) { return t.riders.flatMap(id => legKeysOf(t, id)); }
+  function ensureLegSlots(t) { if (!multi(t)) return; t.riders.forEach(id => legKeysOf(t, id).forEach(k => { if (!t.slots[k]) t.slots[k] = { pick: null, history: [], pay: 'none', issue: null, atRisk: null, dk: null, reacts: {}, extra: null, lastRefresh: 0 }; })); }
+  function legTag(t, k) { return multi(t) ? ` · leg ${legNo(k)}` : ''; }
+  function myLegKey(t, who = me()) { const ks = legKeysOf(t, who); return ks.find(k => t.slots[k] && t.slots[k].issue) || ks.find(k => t.slots[k] && !t.slots[k].pick) || who; }
   // ================= LIVE TEST MODE (real clock, real games; the other five crew are simulated on a schedule) =================
   const LIVE = window.BOZO_LIVE || null;
   /* REHEARSAL: the real app on your phone, real clock, real odds + ESPN. You make an account and a group, add pretend crew,
@@ -3947,7 +3960,9 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     if (fs === 'spread+total' && (a.marketKey.includes('alternate') || b.marketKey.includes('alternate'))) return 'same-game alternate spread + total is often blocked';
     return null;
   }
-  const others = (t, rid) => t.riders.filter(x => x !== rid && t.slots[x].pick);
+  /* Legs per crew member (1–3, one buy-in). Extra legs live in their own slots keyed "nate~2", "nate~3";
+     money stays on the person's main slot. With 1 leg everything is exactly as before. */
+  const others = (t, rid) => legKeys(t).filter(x => x !== rid && t.slots[x] && t.slots[x].pick);
   function conflictFor(t, rid, e = t.slots[rid].pick) {
     for (const o of others(t, rid)) { const why = hardConflict(e, t.slots[o].pick); if (why) return { with: o, why }; }
     return null;
@@ -3984,9 +3999,17 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     return { risk: items.some(i => i.st === 'risk'), items, passed: counted.filter(i => i.st === 'ok').length, total: counted.length, fails: counted.filter(i => i.st === 'no').length, dkOnly, heads: headsUp(t, rid, e) };
   }
   function slotState(t, rid) {
-    const s = t.slots[rid], ch = checks(t, rid);
-    const paid = s.pay === 'confirmed' && !(s.extra && s.extra.state !== 'confirmed');
-    if (!s.pick) return { color: s.pay === 'none' ? 'empty' : '', ch, paid };
+    if (multi(t) && !String(rid).includes('~')) {
+      const sts = legKeysOf(t, rid).map(k => legState(t, k)), all = c => sts.every(x => x.color === c);
+      const color = all('green') ? 'green' : all('empty') ? 'empty' : sts.every(x => x.color === '' || x.color === 'green') && sts.some(x => x.color === '') ? '' : 'yellow';
+      return { color, ch: (sts.find(x => x.ch && x.ch.fails) || sts[0]).ch, paid: sts[0].paid, legs: sts };
+    }
+    return legState(t, rid);
+  }
+  function legState(t, rid) {
+    const s = t.slots[rid], o = t.slots[ownerOf(rid)], ch = checks(t, rid);
+    const paid = o.pay === 'confirmed' && !(o.extra && o.extra.state !== 'confirmed');
+    if (!s.pick) return { color: o.pay === 'none' ? 'empty' : '', ch, paid };
     const dkPending = ch.dkOnly && s.dk !== 'ok';
     if (paid && !ch.fails && !dkPending) return { color: 'green', ch, paid };
     if (dkPending && paid && !ch.fails) return { color: '', ch, paid };
@@ -4011,8 +4034,8 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   function allIn(t) { const all = t.riders.length > 0 && readyCount(t) === t.riders.length; if (all && !t.readyAt) t.readyAt = now(); if (!all) { t.readyAt = null; t.placingAt = null; } return all; }
 
   // ---------- deadline: one place decides how urgent it is (header chip color + to-do stack cards)
-  const missingLegs = t => t.riders.filter(id => !t.slots[id].pick);
-  const firstStartOf = t => { const g = t.riders.map(id => t.slots[id].pick).filter(x => x && !isNaN(gameTime(x))).map(gameTime); return g.length ? Math.min(...g) : (t.firstGameAt || firstGame()); };
+  const missingLegs = t => [...new Set(legKeys(t).filter(k => t.slots[k] && !t.slots[k].pick).map(ownerOf))];
+  const firstStartOf = t => { const g = legKeys(t).map(id => (t.slots[id] || {}).pick).filter(x => x && !isNaN(gameTime(x))).map(gameTime); return g.length ? Math.min(...g) : (t.firstGameAt || firstGame()); };
   function deadlineState(t) {
     const missing = missingLegs(t), ext = t.extendedTo && t.extendedTo > now() ? t.extendedTo : null;
     if (!missing.length || t.placedAt || waitsFirstLeg(t)) return { phase: null, missing };
@@ -4069,6 +4092,9 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
           body: canMove ? '' : 'Too late to move the deadline, so these legs stay at risk until the ticket is placed.',
           acts: canMove ? [[`Move to ${timeOnly(due)}`, 'risk-move', ids, 1], [`Keep ${timeOnly(t.picksDue)}`, 'risk-keep', ids]] : [['Got it', 'risk-keep', ids, 1]] });
       }
+      legKeys(t).forEach(id => { const s = t.slots[id]; if (!s || ownerOf(id) === who || id === ownerOf(id)) return;
+        if (s.pick && s.pick.validation === 'CAPTAIN_REVIEW' && !s.dk && !s.issue) out.push({ id: 'dk-' + id, kind: 'warn', open: id, title: `Manually check ${nm(id)}’s leg ${legNo(id)} in DraftKings`, body: `${legDesc(s.pick)} · ${shortGame(s.pick)}`, acts: [['It’s in DraftKings ✓', 'dk-ok', id, 1], ['Ask to repick', 'dk-repick', id]] });
+      });
       t.riders.forEach(id => {
         const s = t.slots[id];
         if (id === who) return;
@@ -4105,7 +4131,13 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
       const cf = !iss && s.pick ? conflictFor(t, who) : null;
       if (cf) out.push({ id: 'conflict', kind: 'warn', title: 'Your leg conflicts with another pick', body: `It’s the ${cf.why} as ${nm(cf.with)}’s pick, so both can’t hit. Pick a new leg.`, acts: [['Pick a new leg', 'repick', '', 1]] });
       if (s.atRisk && !iss && !(G.dismissed || []).includes('risk')) out.push({ id: 'risk', kind: 'info', title: 'Your leg is at risk', body: `Your game starts at ${timeOnly(s.atRisk)}. If the ticket isn’t placed by then, new pick needed.`, acts: [['Got it', 'dismiss', 'risk', 1], ['Pick a later game', 'repick', '']] });
-      if (!s.pick && !dlMine) out.push({ id: 'add', kind: 'warn', title: s.addedBy && s.addedBy !== who ? `${uname(s.addedBy)} added you to this ticket` : 'Add your pick', body: s.addedBy && s.addedBy !== who ? `${waitsFirstLeg(t) ? 'Legs are due 30 min before the first game.' : 'Add your leg by ' + dayTime(t.picksDue) + '.'} ${buy} buy-in. Screenshot your bet in DraftKings and upload it, or type it.` : `In DraftKings, screenshot your bet slip (or tap Share → Save Image) and upload it here. We’ll read it and check it for you. ${waitsFirstLeg(t) ? 'Legs are due 30 min before the first game.' : 'Deadline ' + dayTime(t.picksDue) + '.'}`, acts: [['Upload screenshot', 'pick', '', 1], ['Type it instead', 'pick-search', ''], ...(who !== t.captain && s.pay === 'none' && !t.placedAt ? [['Leave this ticket', 'leave-slip', '', 0, 'link']] : [])] });
+      if (multi(t)) legKeysOf(t, who).slice(1).forEach(k => { const x = t.slots[k]; if (!x) return; const n = legNo(k);
+        if (x.issue) out.push({ id: 'iss-' + k, kind: 'warn', title: `Your leg ${n} needs a new pick`, body: `${legDesc(x.pick)}: ${x.issue.kind === 'moved' ? 'the line moved on DraftKings' : x.issue.kind === 'pulled' ? 'DraftKings pulled it' : x.issue.kind === 'dkrepick' ? 'your Captain couldn’t find it in DraftKings' : x.issue.kind === 'started' ? 'the game started before the ticket was placed' : 'it can’t go on this ticket'}.`, acts: [['Pick a new leg', 'repick', k, 1]] });
+        else if (x.pick) { const c2 = conflictFor(t, k); if (c2) out.push({ id: 'cf-' + k, kind: 'warn', title: `Your leg ${n} conflicts with another pick`, body: `It’s the ${c2.why} as ${ownerOf(c2.with) === who ? 'your other leg' : nm(c2.with) + '’s pick'}, so both can’t hit.`, acts: [['Pick a new leg', 'repick', k, 1]] }); }
+      });
+      const emptyLegs = multi(t) ? legKeysOf(t, who).filter(k => t.slots[k] && !t.slots[k].pick) : [];
+      if (s.pick && emptyLegs.length && !dlMine) out.push({ id: 'addleg', kind: 'warn', title: `Add your leg ${legNo(emptyLegs[0])} of ${legsPer(t)}`, body: `This ticket is ${legsPer(t)} legs each, one $${t.buyIn} buy-in. Any legs you like, as long as they don’t contradict each other or anyone else’s.`, acts: [['Upload screenshot', 'pick', emptyLegs[0], 1], ['Type it instead', 'pick-search', emptyLegs[0]]] });
+      if (!s.pick && !dlMine) out.push({ id: 'add', kind: 'warn', title: s.addedBy && s.addedBy !== who ? `${uname(s.addedBy)} added you to this ticket` : multi(t) ? `Add your ${legsPer(t)} legs` : 'Add your pick', body: s.addedBy && s.addedBy !== who ? `${waitsFirstLeg(t) ? 'Legs are due 30 min before the first game.' : 'Add your leg by ' + dayTime(t.picksDue) + '.'} ${buy} buy-in. Screenshot your bet in DraftKings and upload it, or type it.` : `In DraftKings, screenshot your bet slip (or tap Share → Save Image) and upload it here. We’ll read it and check it for you. ${waitsFirstLeg(t) ? 'Legs are due 30 min before the first game.' : 'Deadline ' + dayTime(t.picksDue) + '.'}`, acts: [['Upload screenshot', 'pick', '', 1], ['Type it instead', 'pick-search', ''], ...(who !== t.captain && s.pay === 'none' && !t.placedAt ? [['Leave this ticket', 'leave-slip', '', 0, 'link']] : [])] });
       if (s.pay === 'none' && t.captain !== who) out.push({ id: 'pay', kind: 'warn', title: `Pay your ${buy} to ${nm(t.captain)}`, body: 'Your leg goes on the ticket once the Captain confirms your money.', acts: [['Pay ' + buy, 'pay', '', 1]] });
       if (s.extra && s.extra.state === 'none' && t.captain !== who) out.push({ id: 'extra', kind: 'warn', title: `Pay $${s.extra.amount} more to ${nm(t.captain)}`, body: `The buy-in went up to ${buy}. Your leg goes back on the ticket once it’s confirmed.`, acts: [['Pay $' + s.extra.amount, 'pay', '', 1]] });
     }
@@ -4146,7 +4178,8 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   const AV_COLORS = ['#3f6b52', '#8a5a2b', '#45607d', '#7a4a6e', '#5d6b2f', '#7d4040'];
   const AV_EXTRA = ['#2f6f7a', '#6a5a9a', '#9a6a2a', '#3f6b52', '#8a5a2b', '#45607d', '#7a4a6e', '#5d6b2f', '#7d4040', '#4a6d8c'];
   const initials = id => { const n = nm(id).trim().split(/\s+/); return (n[0][0] + (n[1] ? n[1][0] : '')).toUpperCase(); };
-  function avatar(id, size = 30, ring = '', tap = true) {
+  function avatar(id0, size = 30, ring = '', tap = true) {
+    const id = ownerOf(id0);
     const p = G.groupProfile && G.groupProfile[id] && G.groupProfile[id].photo;
     const c = ORDER.indexOf(id) >= 0 ? AV_COLORS[ORDER.indexOf(id) % AV_COLORS.length] : AV_EXTRA[[...id].reduce((a, ch) => a + ch.charCodeAt(0), 0) % AV_EXTRA.length];
     return `<span class="av ${ring} ${tap ? 'tap' : ''}" ${tap ? `data-b="profile" data-v="${id}" title="${esc(nm(id))}’s profile"` : 'aria-hidden="true"'} style="width:${size}px;height:${size}px;flex:0 0 ${size}px;font-size:${Math.round(size * .42)}px;${p ? `background-image:url(${p});background-size:cover;` : `background:${c};color:#fff;`}">${p ? '' : esc(initials(id))}</span>`;
@@ -4173,7 +4206,8 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   function needWords(t, id) {
     const s = t.slots[id], st = slotState(t, id), extraDue = s.extra && s.extra.state !== 'confirmed', out = [];
     if (st.color === 'green') return 'On the ticket';
-    if (s.issue) out.push('Needs a new pick'); else if (!s.pick) out.push(id === me() ? 'Needs your pick' : 'Needs a pick'); else if (st.ch.fails) out.push('Pick needs a fix'); else if (st.ch.dkOnly && s.dk !== 'ok') out.push('Captain checks it manually');
+    const miss = multi(t) ? legKeysOf(t, id).filter(k => t.slots[k] && !t.slots[k].pick).length : 0;
+    if (s.issue) out.push('Needs a new pick'); else if (!s.pick) out.push(id === me() ? (multi(t) ? 'Needs your legs' : 'Needs your pick') : multi(t) ? `Needs ${legsPer(t)} legs` : 'Needs a pick'); else if (miss) out.push(`${miss} more leg${miss > 1 ? 's' : ''} to add`); else if (st.ch.fails) out.push('Pick needs a fix'); else if (st.ch.dkOnly && s.dk !== 'ok') out.push('Captain checks it manually');
     const conf = isCap(t) ? 'confirm it' : `${nm(t.captain)} confirms`;
     if (extraDue) out.push(s.extra.state === 'sent' ? `$${s.extra.amount} more sent · ${conf}` : `Needs to pay $${s.extra.amount} more`);
     else if (s.pay === 'sent') out.push(`$${t.buyIn} sent · ${conf}`); else if (s.pay === 'none') out.push(`Needs to pay $${t.buyIn}`);
@@ -4184,6 +4218,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     if (!inSlip(t)) return ''; // spectators and invitees only watch
     const s = t.slots[id], mine = id === me(), cap = isCap(t), extraDue = s.extra && s.extra.state !== 'confirmed';
     if (mine && (!s.pick || s.issue)) return btn(s.issue ? 'New leg' : 'Add', s.issue ? 'repick' : 'pick', '', 0, 'sm');
+    if (mine && multi(t)) { const nx = legKeysOf(t, id).find(k => t.slots[k] && (!t.slots[k].pick || t.slots[k].issue)); if (nx) return btn('Leg ' + legNo(nx), t.slots[nx].issue ? 'repick' : 'pick', nx, 0, 'sm'); }
     if (cap && !mine && (s.pay === 'sent' || (extraDue && s.extra.state === 'sent'))) return btn('Got it', s.pay === 'sent' ? 'got-it' : 'extra-got', id, 0, 'sm g');
     if (cap && s.pick && s.pick.validation === 'CAPTAIN_REVIEW' && s.dk !== 'ok' && !s.issue) return btn('Check manually', 'open-card', id, 0, 'sm');
     if (!mine && (!s.pick || needsMoney(s))) return nudgeInfo(t, id) ? '<button class="nb sm" disabled>Reminded</button>' : btn('Remind', 'nudge', id, 0, 'sm');
@@ -4203,6 +4238,8 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     else if (st.ch.fails) pick = tile('no', 'Pick', `${esc(legDesc(e))} <span class="o">${fmtOdds(e.americanOdds)}</span>`, esc(st.ch.items.find(i => i.st === 'no').text), mine ? btn('Pick a new leg', 'repick', '', 1, 'sm') : '');
     else if (st.ch.dkOnly && s.dk !== 'ok') pick = tile('wait', 'Pick · manual check', esc(legDesc(e)), e.uncovered ? 'Sport not covered yet' : 'DraftKings-only', iAmCap ? btn('Check manually', 'open-card', id, 0, 'sm') : '');
     else pick = tile('ok', 'Pick ✓', `${esc(legDesc(e))} <span class="o">${fmtOdds(e.americanOdds)}</span>`, s.atRisk ? `At risk · place by ${esc(timeOnly(s.atRisk))}` : esc(when(e)));
+    if (multi(t)) { const ks = legKeysOf(t, id), done = ks.filter(k => t.slots[k] && t.slots[k].pick).length, bad = ks.filter(k => t.slots[k] && t.slots[k].pick && (t.slots[k].issue || (legState(t, k).ch || {}).fails)).length, next = ks.find(k => t.slots[k] && (!t.slots[k].pick || t.slots[k].issue));
+      pick = tile(done === ks.length && !bad ? 'ok' : 'no', `Legs · ${done} of ${ks.length}${done === ks.length && !bad ? ' ✓' : ''}`, ks.map(k => t.slots[k] && t.slots[k].pick ? esc(shortBet(t.slots[k].pick)) : '<span class="o">not in yet</span>').join('<br>'), bad ? `${bad} need${bad > 1 ? '' : 's'} a new pick` : '', mine && next ? btn(t.slots[next].issue ? 'Fix leg ' + legNo(next) : 'Add leg ' + legNo(next), t.slots[next].issue ? 'repick' : 'pick', next, 1, 'sm') : ''); }
     // Money box
     let money;
     const amt = extraDue ? s.extra.amount : t.buyIn, more = extraDue ? ' more' : '';
@@ -4246,17 +4283,17 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     return '';
   }
   function ticketBox(t) {
-    const all = t.riders.length, ids = t.riders.filter(id => slotState(t, id).color === 'green'), rest = t.riders.filter(id => !ids.includes(id));
+    const keys = legKeys(t), all = keys.length, ids = keys.filter(id => t.slots[id] && legState(t, id).color === 'green'), rest = keys.filter(id => !ids.includes(id));
     const placed = !!t.placedAt, T2 = t.track || {};
     return `<div class="ticket ${ids.length === all ? 'full' : ''} ${placed ? 'placed' : ''}"><div class="th"><span>The ticket</span><span>${placed ? (t.settled ? (t.settled.result === 'won' ? 'Won' : 'Lost') : 'Placed ✓') : `${ids.length} of ${all} legs`}</span></div>
       ${ids.map(id => { const s = t.slots[id], e = s.pick; const rx = Object.values(s.reacts || {}).reduce((n, v) => n + v.length, 0);
         const tr = placed ? T2[id] : null, rr = placed ? legRes(t, id) : null;
-        return `<button class="trow ${id === me() ? 'mine' : ''} ${rr ? 'r-' + rr : tr && tr.state === 'in' ? 'r-live' : ''}" data-b="open-card" data-v="${id}">${avatar(id, 26)}<span class="tw"><small>${id === me() ? 'You' : esc(nm(id))}${t.captain === id ? ' · Captain' : ''} · ${esc(shortGame(e))} · ${esc(tr && tr.state !== 'pre' && tr.score ? tr.score : when(e))}</small><b>${esc(legDesc(e))}</b>${placed ? meterHTML(tr, e) : ''}${tr && tr.state !== 'pre' && tr.text && !(tr.meter && tr.meter.kind === 'ou') ? `<em class="trk">${esc(tr.meter && tr.meter.kind === 'margin' ? tr.score + (tr.state === 'post' ? ' · final' : '') : tr.text)}${tr.state === 'in' && tr.detail ? ` <span class="muted">· ${esc(tr.detail)}</span>` : ''}</em>` : ''}
+        return `<button class="trow ${ownerOf(id) === me() ? 'mine' : ''} ${rr ? 'r-' + rr : tr && tr.state === 'in' ? 'r-live' : ''}" data-b="open-card" data-v="${id}">${avatar(id, 26)}<span class="tw"><small>${ownerOf(id) === me() ? 'You' : esc(nm(id))}${legTag(t, id)}${t.captain === id ? ' · Captain' : ''} · ${esc(shortGame(e))} · ${esc(tr && tr.state !== 'pre' && tr.score ? tr.score : when(e))}</small><b>${esc(legDesc(e))}</b>${placed ? meterHTML(tr, e) : ''}${tr && tr.state !== 'pre' && tr.text && !(tr.meter && tr.meter.kind === 'ou') ? `<em class="trk">${esc(tr.meter && tr.meter.kind === 'margin' ? tr.score + (tr.state === 'post' ? ' · final' : '') : tr.text)}${tr.state === 'in' && tr.detail ? ` <span class="muted">· ${esc(tr.detail)}</span>` : ''}</em>` : ''}
           ${s.atRisk && !placed ? `<em class="risk">If the ticket isn’t placed by ${esc(timeOnly(s.atRisk))}, new pick needed</em>` : ''}${s.oddsNote && !placed ? `<em class="okn">✓ Still on the ticket · odds ${esc(s.oddsNote)}</em>` : ''}</span><span class="to">${fmtOdds(e.americanOdds)}${placed ? pill(tr, e) : rx ? `<small class="rxs">${Object.keys(s.reacts).filter(k => s.reacts[k].length).join('')}</small>` : ''}${G.rxPop && G.rxPop.id === id ? `<span class="rxpop" aria-hidden="true">${G.rxPop.k}</span>` : ''}</span></button>`; }).join('')}
       ${ids.length ? '' : '<div class="tempty">Legs show up here once they’re in.</div>'}
       <div class="perf"></div>${placed ? `<div class="tf pay"><span>${money2(t.slip.wager)} to pay <b>${money2(t.slip.payout)}</b></span><span><b>${money2(share(t))}</b> each</span></div>
         <div class="tf"><span>${t.settled ? 'Settled ' + esc(dayTime(t.settled.at)) : t.trackedAt ? 'Scores from ESPN · ' + esc(ago(t.trackedAt)) : 'Scores from ESPN'}</span>${t.settled ? '' : '<button class="link tiny" data-b="refresh-track">Refresh scores</button>'}</div>`
-        : `<div class="tf"><span>Pot <b>$${t.buyIn * all}</b></span>${(() => { const ps = ids.map(id => t.slots[id].pick).filter(Boolean); if (!ps.length) return '';
+        : `<div class="tf"><span>Pot <b>$${t.buyIn * t.riders.length}</b></span>${(() => { const ps = ids.map(id => t.slots[id].pick).filter(Boolean); if (!ps.length) return '';
             /* same-game legs: DraftKings prices those itself, so only show odds we know are right */ if (new Set(ps.map(e => e.eventId)).size < ps.length) return ''; const dec = ps.reduce((a, e) => a * decOdds(e.americanOdds), 1), am = dec >= 2 ? Math.round((dec - 1) * 100) : Math.round(-100 / (dec - 1));
             return `<span>Odds so far <b>${am > 0 ? '+' : ''}${am.toLocaleString()}</b></span><span>Pays ~<b>${money2(t.buyIn * all * dec)}</b></span>`; })()}</div>`}</div>`;
   }
@@ -4279,12 +4316,12 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   /* Placed / past recap strip: one bar per person in result colors. Closed = thin bars; open = bars over avatars. */
   function placedJ(t, key) {
     const o = ['hit', 'live', 'pre', 'push', 'void', 'miss'], st = id => legRes(t, id) || ((t.track || {})[id] && t.track[id].state === 'in' ? 'live' : 'pre');
-    const ids2 = [...t.riders].sort((a, b) => o.indexOf(st(a)) - o.indexOf(st(b))), open = (G.stripOpen || {})[key];
-    return open ? `<div class="jwrap"><div class="jscroll">${ids2.map(id => `<span class="jcol r-${st(id)}"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b></span>`).join('')}</div>${jtab(key, true)}</div>`
+    const ids2 = legKeys(t).sort((a, b) => o.indexOf(st(a)) - o.indexOf(st(b))), open = (G.stripOpen || {})[key];
+    return open ? `<div class="jwrap"><div class="jscroll">${ids2.map(id => `<span class="jcol r-${st(id)}"><i></i>${avatar(id, 32)}<b>${ownerOf(id) === me() ? 'You' : esc(nm(id))}${multi(t) ? ' ' + legNo(id) : ''}</b></span>`).join('')}</div>${jtab(key, true)}</div>`
       : `<button class="jthin pthin" data-b="strip-j" data-v="${key}" aria-expanded="false" aria-label="Show results by person">${ids2.map(id => `<i class="${st(id)}"></i>`).join('')}</button><div class="jrow"><span class="jsum"><b>${ids2.filter(id => st(id) === 'hit').length} of ${ids2.length}</b> legs hit${ids2.some(id => st(id) === 'live') ? ' · live' : ''}</span>${jtab(key, false, 'Results')}</div>`;
   }
   function strip(t) {
-    if (t.placedAt) { const ids2 = t.riders, hit = ids2.filter(id => legRes(t, id) === 'hit').length, live = ids2.some(id => (t.track || {})[id] && t.track[id].state === 'in' && !legRes(t, id));
+    if (t.placedAt) { const ids2 = legKeys(t), hit = ids2.filter(id => legRes(t, id) === 'hit').length, live = ids2.some(id => (t.track || {})[id] && t.track[id].state === 'in' && !legRes(t, id));
       const cap = t.settled ? (t.settled.result === 'won' ? 'Won' : 'Lost') : outcome(t) && outcome(t).result ? (outcome(t).result === 'won' ? 'Won' : 'Lost') : `${hit} of ${ids2.length} hit${live ? ' · live' : ''}`;
       return `<div class="strip placed jstrip">${placedJ(t, 'placed-' + t.id)}<div class="stripcap">${cap}</div></div>`; }
     return `<div class="strip jstrip">${stripJ(t, 'slip-' + t.id)}</div>`;
@@ -4317,6 +4354,10 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   function lockedBox(t) {
     const id = me(), s = t.slots[id];
     if (!s || !s.pick || slotState(t, id).color !== 'green') return '';
+    if (multi(t)) { const ks = legKeysOf(t, id), open = !!G.lockOpen, rs = ks.map(k => t.placedAt ? legRes(t, k) : null), miss = rs.filter(r => r === 'miss').length, hit = rs.filter(r => r === 'hit').length;
+      const label = !t.placedAt ? `Your ${ks.length} legs are in` : `${hit} of ${ks.length} hit${miss ? ` · ${miss} missed` : ''}`;
+      return `<div class="lockwrap"><div class="locked ${open ? 'open' : ''} ${miss ? 'bad' : ''}"><button class="lockhead" data-b="lock" aria-expanded="${open}"><span class="lk">${miss ? '✗' : '✓'}</span><span class="lt2">${esc(label)}</span><span class="pinchev">${open ? '▴' : '▾'}</span></button>
+        ${open ? `<div class="lockbody">${ks.map((k, i) => { const e = t.slots[k].pick; return `<button class="trow mine ${rs[i] ? 'r-' + rs[i] : ''}" data-b="open-card" data-v="${k}"><span class="tw"><small>Leg ${i + 1} · ${esc(shortGame(e))} · ${esc(when(e))}</small><b>${esc(legDesc(e))}</b></span><span class="to">${fmtOdds(e.americanOdds)}</span></button>`; }).join('')}</div>` : ''}</div></div>`; }
     const e = s.pick, open = !!G.lockOpen, tr = t.placedAt ? (t.track || {})[id] : null, rr = t.placedAt ? legRes(t, id) : null;
     const sb = shortBet(e), blurb = sb.length <= 26 ? sb : 'Pick placed';
     const label = !t.placedAt ? 'Your pick is in' : rr === 'hit' ? `Hit ✓ · ${blurb}` : rr === 'miss' ? `Missed · ${blurb}` : rr ? `${rr} · ${blurb}` : tr && tr.state === 'in' && tr.meter && tr.meter.kind === 'ou' && sb.length <= 20 ? `${sb} · ${tr.meter.cur}` : blurb;
@@ -4337,17 +4378,17 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     return (who ? who + ' ' : '') + bet;
   }
   const decOdds = a => a == null ? 1 : a > 0 ? 1 + a / 100 : 1 + 100 / -a;
-  const estPay = t => t.buyIn * t.riders.length * t.riders.reduce((m, id) => m * decOdds(t.slots[id].pick && t.slots[id].pick.americanOdds), 1);
+  const estPay = t => t.buyIn * t.riders.length * legKeys(t).reduce((m, id) => m * decOdds(t.slots[id] && t.slots[id].pick && t.slots[id].pick.americanOdds), 1);
   const share = t => t.slip ? t.slip.payout / t.riders.length : 0;
-  const legRes = (t, id) => { const s = t.slots[id]; if (s.manualRes) return s.manualRes; const r = (t.track || {})[id]; return r ? r.result || null : null; };
+  const legRes = (t, id) => { const s = t.slots[id]; if (!s) return null; if (s.manualRes) return s.manualRes; const r = (t.track || {})[id]; return r ? r.result || null : null; };
   /* Won, lost, or still going? A miss decides it early. DraftKings-only legs need the Captain's mark. */
   function outcome(t) {
     if (!t.placedAt) return null;
-    const res = t.riders.map(id => legRes(t, id));
-    const missed = t.riders.filter(id => legRes(t, id) === 'miss');
+    const LK = legKeys(t), res = LK.map(id => legRes(t, id));
+    const missed = LK.filter(id => legRes(t, id) === 'miss');
     if (missed.length) return { result: 'lost', missed };
     if (res.every(r => ['hit', 'push', 'void'].includes(r))) return { result: 'won', missed: [] };
-    const open = t.riders.filter(id => !legRes(t, id)), slipOnly = open.filter(id => ((t.track || {})[id] || {}).mode === 'slip');
+    const open = LK.filter(id => !legRes(t, id)), slipOnly = open.filter(id => ((t.track || {})[id] || {}).mode === 'slip');
     const gamesDone = slipOnly.every(id => ((t.track || {})[id] || {}).state === 'post');
     if (open.length && open.length === slipOnly.length && gamesDone) return { result: null, missed: [], waitSlip: slipOnly };
     return { result: null, missed: [], left: open.length };
@@ -4356,9 +4397,9 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     if (!t.placedAt || !window.BOZO_TRACK) return;
     if (G.replay) window.BOZO_ESPN_FIX = G.replay === 'live' ? window.BOZO_ESPN_LIVE : window.BOZO_ESPN_FINAL; else window.BOZO_ESPN_FIX = null;
     t.track = t.track || {};
-    await Promise.all(t.riders.map(async id => { try { t.track[id] = await window.BOZO_TRACK.track(t.slots[id].pick); } catch { t.track[id] = { state: 'unknown', text: 'Scores unavailable' }; } }));
+    await Promise.all(legKeys(t).map(async id => { try { t.track[id] = await window.BOZO_TRACK.track(t.slots[id].pick); } catch { t.track[id] = { state: 'unknown', text: 'Scores unavailable' }; } }));
     t.trackedAt = now(); const o = outcome(t);
-    if (o && o.result && !t.decidedSys) { t.decidedSys = true; sys(o.result === 'won' ? '🎉 Every leg hit. The ticket won!' : `❌ The ticket lost · ${o.missed.length} of ${t.riders.length} legs missed`, t); }
+    if (o && o.result && !t.decidedSys) { t.decidedSys = true; sys(o.result === 'won' ? '🎉 Every leg hit. The ticket won!' : `❌ The ticket lost · ${o.missed.length} of ${legKeys(t).length} legs missed`, t); }
     if (!quiet) render();
   }
   const pill = (r, e) => !r ? '' : r.result === 'hit' ? '<span class="tp hit">✓ Hit</span>' : r.result === 'miss' ? '<span class="tp miss">✗ Missed</span>' : r.result === 'push' ? '<span class="tp push">Push</span>' : r.result === 'void' ? '<span class="tp push">Void</span>'
@@ -4388,8 +4429,8 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
           : { id: 'slipwait', kind: 'good', title: 'Every tracked leg hit', body: `${names.charAt(0).toUpperCase() + names.slice(1)} leg settles from the DraftKings slip. ${c} uploads it once it’s graded.`, acts: [] }); }
       if (o && o.result === 'won') out.push(cap ? { id: 'settle', kind: 'warn', title: '🎉 It hit! Confirm the payout', body: `Every leg hit. Once DraftKings settles it, confirm what it paid (the slip says ${money2(t.slip.payout)}).`, acts: [[`Confirm ${money2(t.slip.payout)}`, 'settle-confirm', 'won', 1], ['Upload settled slip', 'slip-open', 'settled']] }
         : { id: 'settle', kind: 'good', title: '🎉 It hit!', body: `${c} is confirming the payout with DraftKings. Your share: ${money2(share(t))}.`, acts: [] });
-      if (o && o.result === 'lost') out.push(cap ? { id: 'settle', kind: 'warn', title: 'It’s a loss', body: `${o.missed.length} of ${t.riders.length} legs missed. Close it out so it goes into history.`, acts: [['Close it out', 'settle-confirm', 'lost', 1]] }
-        : { id: 'settle', kind: 'info', title: 'It’s a loss', body: `${o.missed.length} of ${t.riders.length} legs missed${o.missed.includes(who) ? ', yours included' : ''}. ${nm(t.captain)} closes it out.`, acts: [] });
+      if (o && o.result === 'lost') out.push(cap ? { id: 'settle', kind: 'warn', title: 'It’s a loss', body: `${o.missed.length} of ${legKeys(t).length} legs missed. Close it out so it goes into history.`, acts: [['Close it out', 'settle-confirm', 'lost', 1]] }
+        : { id: 'settle', kind: 'info', title: 'It’s a loss', body: `${o.missed.length} of ${legKeys(t).length} legs missed${o.missed.some(k => ownerOf(k) === who) ? ', yours included' : ''}. ${nm(t.captain)} closes it out.`, acts: [] });
     } else if (t.settled.result === 'won') {
       const each = t.settled.amount / t.riders.length;
       if (cap) t.riders.filter(id => id !== who).forEach(id => { const pp = t.settled.payouts[id]; if (!pp.sent) out.push({ id: 'payout-' + id, kind: 'warn', title: `Send ${nm(id)} ${money2(each)}`, body: handleSummary(G.people[id].handles) || `${nm(id)} hasn’t added a payment handle yet.`, acts: [['Sent', 'payout-sent', id, 1]] }); });
@@ -4404,24 +4445,24 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     const o = t.settled || outcome(t); if (!o || !o.result) return '';
     if (o.result === 'won') { const amt = t.settled ? t.settled.amount : t.slip.payout;
       return `<div class="section"><div class="won"><div class="wbig">🎉 ${esc(t.name)} hit</div><div class="wamt">${money2(amt)}</div><div class="weach">${money2(amt / t.riders.length)} each · ${t.riders.length} crew</div></div></div>`; }
-    const missed = t.riders.filter(id => legRes(t, id) === 'miss'), r = id => (t.track || {})[id] || {};
+    const LK = legKeys(t), missed = LK.filter(id => legRes(t, id) === 'miss'), r = id => (t.track || {})[id] || {};
     // One miss: that crew member is the Bozo. More than one: the Bozo list, everyone who missed (it keeps growing while games finish).
-    const live = !t.settled && t.riders.some(id => !legRes(t, id));
+    const live = !t.settled && LK.some(id => !legRes(t, id));
     // one clean line per leg: game lines show the score, props show the number vs the line
     const resLine = id => { const x = r(id), e = t.slots[id].pick; if (!x.score && !x.text) return '';
       if (!e.betTypeId || ['spread', 'moneyline', 'total', 'team_total'].includes(e.betTypeId)) { const lineTxt = e.betTypeId === 'spread' ? ` · needed ${(e.line > 0 ? '+' : '') + e.line}` : e.betTypeId === 'total' ? ` · ${(x.meter || {}).cur ?? ''} total vs ${e.line}` : ''; return (x.score || '') + (x.state === 'post' ? ' · final' : '') + lineTxt; }
       return x.meter && x.meter.kind === 'ou' ? `${x.meter.cur}${x.unit ? ' ' + x.unit : ''} · line ${x.meter.target}` : (x.text || '').replace(/ ✓$/, ''); };
     /* U1: two cards. People first (big names), their leg and the number smaller underneath. */
-    const row = (id, ok) => `<div class="urow">${avatar(id, 34)}<span><b>${esc(id === me() ? 'You' : nm(id))}</b><small>${esc(legDesc(t.slots[id].pick))}</small><em>${esc(resLine(id))}</em></span><i class="${ok ? 'ok' : 'no'}">${ok ? '✓' : '✗'}</i></div>`;
-    const hit = t.riders.filter(id => ['hit', 'push', 'void'].includes(legRes(t, id))), left = t.riders.filter(id => !legRes(t, id));
-    const bad = `<div class="ucard bad"><div class="uh">🤡 ${missed.length === 1 ? `<b>${esc(missed[0] === me() ? 'You’re' : nm(missed[0]) + ' is')} the Bozo</b>` : `<b>The Bozo Bunch</b><span>${missed.length}</span>`}</div>${missed.map(id => row(id, false)).join('')}</div>`;
+    const row = (id, ok) => `<div class="urow">${avatar(id, 34)}<span><b>${esc(ownerOf(id) === me() ? 'You' : nm(id))}${multi(t) ? `<i class="lgn"> · leg ${legNo(id)}</i>` : ''}</b><small>${esc(legDesc(t.slots[id].pick))}</small><em>${esc(resLine(id))}</em></span><i class="${ok ? 'ok' : 'no'}">${ok ? '✓' : '✗'}</i></div>`;
+    const hit = LK.filter(id => ['hit', 'push', 'void'].includes(legRes(t, id))), left = LK.filter(id => !legRes(t, id));
+    const bad = `<div class="ucard bad"><div class="uh">🤡 ${missed.length === 1 && !multi(t) ? `<b>${esc(missed[0] === me() ? 'You’re' : nm(missed[0]) + ' is')} the Bozo</b>` : `<b>The Bozo Bunch</b><span>${missed.length}</span>`}</div>${missed.map(id => row(id, false)).join('')}</div>`;
     const good = hit.length ? `<div class="ucard good"><div class="uh">✓ <b>Did their jobs</b><span>${hit.length}</span></div>${hit.map(id => row(id, true)).join('')}</div>` : '';
     const wait = left.length ? `<p class="tiny muted" style="margin:8px 2px 0">${left.length} still playing: ${left.map(id => esc(nm(id))).join(', ')}</p>` : '';
-    return `<div class="section"><div class="lost u1"><div class="lhead"><span class="lbig">Lost</span><span class="lsum">${missed.length} of ${t.riders.length} legs missed${live ? ' so far' : ''}</span></div>${bad}${good}${wait}</div></div>`;
+    return `<div class="section"><div class="lost u1"><div class="lhead"><span class="lbig">Lost</span><span class="lsum">${missed.length} of ${LK.length} legs missed${live ? ' so far' : ''}</span></div>${bad}${good}${wait}</div></div>`;
   }
   // ---------- Captain uploads the placed (or settled) slip
   function placeslip() {
-    const t = T(), P = G.place || {}, legs = t.riders.filter(id => t.slots[id].pick).map(id => ({ id, e: t.slots[id].pick })), found = legs.filter(l => (P.match || {})[l.id]).length;
+    const t = T(), P = G.place || {}, legs = legKeys(t).filter(id => t.slots[id] && t.slots[id].pick).map(id => ({ id, e: t.slots[id].pick })), found = legs.filter(l => (P.match || {})[l.id]).length;
     const W = whoseLeg(t, P), ready = found === legs.length && !W.unassigned.length;
     const top = `<div class="head"><button class="icon-btn" data-b="slip-cancel" aria-label="Back">${icon('back')}</button><div class="t"><small>${esc(t.name.toUpperCase())}</small><b>${P.kind === 'settled' ? 'Settled slip' : 'Placed slip'}</b></div><span></span></div>`;
     if (P.step === 'reading') return top + `<div class="body"><div class="row" style="gap:14px;margin:20px 0"><span class="spin" style="flex:0 0 22px"></span><b>Reading your slip…</b></div>${P.thumb ? `<img src="${P.thumb}" alt="Your slip" style="max-width:100%;border-radius:10px">` : ''}</div>`;
@@ -4457,12 +4498,12 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
      Give each extra leg to a crew member with no pick or someone who was invited. They owe the buy-in until the Captain marks them paid. */
   function whoseLeg(t, P) {
     const RL = (P.read && P.read.legs) || [], used = new Set(Object.values(P.match || {}).map(m => m.idx).filter(i => i != null));
-    const extras = RL.map((l, i) => i).filter(i => !used.has(i)), noPick = t.riders.filter(id => !t.slots[id].pick);
+    const extras = RL.map((l, i) => i).filter(i => !used.has(i)), noPick = legKeys(t).filter(id => t.slots[id] && !t.slots[id].pick);
     const cands = [...noPick, ...Object.keys(t.invites || {}).filter(id => !inSlip(t, id) && !['declined', 'removed'].includes(t.invites[id].st))];
     const X = P.extra || {}, taken = Object.values(X).filter(Boolean), unassigned = noPick.filter(id => !taken.includes(id));
     if (!extras.length || P.kind === 'settled') return { html: '', unassigned: P.kind === 'settled' ? [] : unassigned };
     const html = `<div class="whose"><h3>Whose leg is this?</h3><p class="tiny muted" style="margin:0 0 10px">The slip has ${extras.length} leg${extras.length > 1 ? 's' : ''} nobody picked in BOZO. Pick who ${extras.length > 1 ? 'they belong' : 'it belongs'} to. They join the ticket and owe the $${t.buyIn} buy-in until you mark them paid.</p>
-      ${extras.map(i => { const l = RL[i]; return `<div class="wl"><b>${esc(slipLegText(l))}${l.odds != null ? ' · ' + fmtOdds(l.odds) : ''}</b><select data-extrasel="${i}" aria-label="Whose leg is ${esc(slipLegText(l))}"><option value="">Nobody · leave it off</option>${cands.map(id => `<option value="${id}" ${X[i] === id ? 'selected' : ''} ${taken.includes(id) && X[i] !== id ? 'disabled' : ''}>${esc(uname(id))} · ${inSlip(t, id) ? 'on the ticket, no pick' : 'invited'}</option>`).join('')}</select></div>`; }).join('')}
+      ${extras.map(i => { const l = RL[i]; return `<div class="wl"><b>${esc(slipLegText(l))}${l.odds != null ? ' · ' + fmtOdds(l.odds) : ''}</b><select data-extrasel="${i}" aria-label="Whose leg is ${esc(slipLegText(l))}"><option value="">Nobody · leave it off</option>${cands.map(id => `<option value="${id}" ${X[i] === id ? 'selected' : ''} ${taken.includes(id) && X[i] !== id ? 'disabled' : ''}>${esc(uname(id))}${legTag(t, id)} · ${inSlip(t, ownerOf(id)) ? 'on the ticket, no pick' : 'invited'}</option>`).join('')}</select></div>`; }).join('')}
       ${cands.length ? '' : '<p class="tiny muted">Nobody on this ticket is missing a leg, and nobody else was invited.</p>'}</div>`;
     return { html, unassigned };
   }
@@ -4471,7 +4512,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   /* Which slip leg is which rider's leg? Name + number. */
   function matchSlip(t, slip) {
     const out = {}, used = new Set();
-    t.riders.forEach(id => { const e = t.slots[id].pick; if (!e) return;
+    legKeys(t).forEach(id => { const e = (t.slots[id] || {}).pick; if (!e) return;
       const best = (slip.legs || []).map((l, i) => { const nameS = /^game$/i.test(e.participant || '') ? (/total|game/i.test((l.player_or_team || '') + ' ' + (l.stat || '')) ? 0.9 : 0) : M.nameScore(e.participant, l.player_or_team || '');
         const lineOk = e.line == null || l.line == null || Math.abs(Math.abs(l.line) - Math.abs(e.line)) < 0.01 || Math.abs(l.line - (e.line + 0.5)) < 0.01;
         return { i, l, s: nameS + (lineOk ? 0.3 : -0.5) }; }).filter(x => !used.has(x.i)).sort((a, b) => b.s - a.s)[0];
@@ -4505,7 +4546,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     Object.entries(P.match || {}).forEach(([id, m2]) => { if (m2.odds != null && t.slots[id] && t.slots[id].pick && m2.odds !== t.slots[id].pick.americanOdds) { t.slots[id].pick = { ...t.slots[id].pick, americanOdds: m2.odds }; } });
     const RL = (P.read && P.read.legs) || [];
     Object.entries(P.extra || {}).forEach(([i, id]) => { const l = RL[Number(i)]; if (!id || !l) return;
-      if (!inSlip(t, id)) { t.riders.push(id); t.slots[id] = newSlot('none'); if (t.invites && t.invites[id]) t.invites[id].st = 'accepted'; }
+      if (!inSlip(t, ownerOf(id))) { t.riders.push(id); t.slots[id] = newSlot('none'); if (t.invites && t.invites[id]) t.invites[id].st = 'accepted'; ensureLegSlots(t); }
       const s = t.slots[id]; s.pick = slipEntry(l, t); s.dk = 'ok'; s.dkBy = t.captain;
       sys(`${nm(me())} matched a slip leg to ${uname(id)} · ${legDesc(s.pick)} · ${nm(id)} owes the $${t.buyIn} buy-in`); });
     t.placedAt = now(); t.slip = { wager: w || t.buyIn * t.riders.length, payout: pay, boost: (P.read || {}).boost || '', thumb: P.thumb || null }; t.track = {};
@@ -4515,10 +4556,10 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   function settle(t, result, amount) {
     t.settled = { result, at: now(), amount: result === 'won' ? amount : 0, payouts: {} };
     t.riders.forEach(id => { t.settled.payouts[id] = { sent: id === t.captain, received: id === t.captain }; });
-    const missed = t.riders.filter(id => legRes(t, id) === 'miss');
-    sys(result === 'won' ? `💰 ${nm(t.captain)} confirmed the payout: ${money2(amount)} · ${money2(amount / t.riders.length)} each` : `${nm(t.captain)} closed out ${t.name}${missed.length === 1 ? ` · ${nm(missed[0])} is the Bozo 🤡` : missed.length ? ` · the Bozo Bunch: ${missed.map(nm).join(', ')} 🤡` : ''}`, t);
+    const missed = legKeys(t).filter(id => legRes(t, id) === 'miss');
+    sys(result === 'won' ? `💰 ${nm(t.captain)} confirmed the payout: ${money2(amount)} · ${money2(amount / t.riders.length)} each` : `${nm(t.captain)} closed out ${t.name}${missed.length === 1 && !multi(t) ? ` · ${nm(missed[0])} is the Bozo 🤡` : missed.length ? ` · the Bozo Bunch: ${[...new Set(missed.map(nm))].join(', ')} 🤡` : ''}`, t);
     G.history = G.history || [];
-    G.history.unshift({ name: t.name, at: now(), result, amount: t.settled.amount, each: t.settled.amount / t.riders.length, bozo: missed.length === 1 ? missed[0] : null, legs: t.riders.map(id => ({ id, desc: legDesc(t.slots[id].pick), odds: t.slots[id].pick.americanOdds, res: legRes(t, id) })) });
+    G.history.unshift({ name: t.name, at: now(), result, amount: t.settled.amount, each: t.settled.amount / t.riders.length, bozo: missed.length === 1 && !multi(t) ? missed[0] : null, legs: legKeys(t).map(id => ({ id: ownerOf(id), desc: legDesc(t.slots[id].pick), odds: t.slots[id].pick.americanOdds, res: legRes(t, id) })) });
     render();
   }
   function historyBlock() {
@@ -4530,11 +4571,11 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   // ---------- screens
   /* Slip header (L3 + M1): back to the group, name, Captain + book, three big numbers, then the time block. */
   function header() {
-    const t = T(), locked = t.riders.filter(id => slotState(t, id).color === 'green').length, hit = t.riders.filter(id => legRes(t, id) === 'hit').length;
+    const t = T(), lk = legKeys(t), locked = lk.filter(id => t.slots[id] && legState(t, id).color === 'green').length, hit = lk.filter(id => legRes(t, id) === 'hit').length;
     return `<div class="rhead"><div class="grp"><button class="backgrp" data-b="go-group">‹ ${esc(G.group.name)}</button>
  <button class="icon-btn setbtn" data-b="settings" aria-label="Ticket settings">${icon('gear')}</button></div>
       <div class="tname">${esc(t.name)}</div><div class="capline">👑 ${t.captain === me() ? '<b>You’re Captain</b>' : `Captain <b>${esc(uname(t.captain))}</b>`} · <span class="book">${esc(t.sportsbook)}</span></div>
-      <div class="score"><div><b>$${t.buyIn}</b><small>Buy-in</small></div><div><b>${t.riders.length}</b><small>Crew members</small></div><div><b>${t.placedAt ? hit : locked}/${t.riders.length}</b><small>${t.placedAt ? 'Legs hit' : 'Legs locked'}</small></div></div>${dueLine(t)}</div>`;
+      <div class="score"><div><b>$${t.buyIn}</b><small>Buy-in</small></div><div><b>${t.riders.length}</b><small>Crew members</small></div><div><b>${t.placedAt ? hit : locked}/${lk.length}</b><small>${t.placedAt ? 'Legs hit' : 'Legs locked'}</small></div></div>${dueLine(t)}</div>`;
   }
 
   /* The deadline: its own plain line under the slip name. Gray, orange in the last 30 min (or extra time), red once passed. */
@@ -4543,7 +4584,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
      "Due" = every leg in. "Place by" = when the first game on the ticket starts; the ticket has to be placed before it.
      Tap it for the one-line explanation (whose leg starts first). */
   function firstLegOf(t) {
-    const l = t.riders.map(id => ({ id, e: t.slots[id].pick })).filter(x => x.e && !isNaN(gameTime(x.e))).sort((a, b) => gameTime(a.e) - gameTime(b.e))[0];
+    const l = legKeys(t).map(id => ({ id, e: (t.slots[id] || {}).pick })).filter(x => x.e && !isNaN(gameTime(x.e))).sort((a, b) => gameTime(a.e) - gameTime(b.e))[0];
     return l ? { at: gameTime(l.e), id: l.id, e: l.e } : { at: t.firstGameAt || firstGame(), id: null, e: null };
   }
   /* The time block (option E): two lines joined by a colored rule on the left.
@@ -4635,7 +4676,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     const t = T(), p = G.people[id], gp = (G.groupProfile || {})[id] || {}, s = t.slots[id], mine = id === me();
     /* Sample history plus every decided ticket in this demo, across all groups. Bozo count = every leg you missed. */
     const base = STATS[id] || { tickets: 0, hit: 0, legs: 0, best: '—', sold: 0, streak: '—' }, st = { ...base, sold: base.legs - base.hit };
-    (G.groups || [G.group]).forEach(g => g.tickets.forEach(x => { if (!x.riders.includes(id) || !decided(x)) return; const r = legRes(x, id); st.tickets++; if (r === 'hit' || r === 'miss') st.legs++; if (r === 'hit') st.hit++; if (r === 'miss') st.sold++; }));
+    (G.groups || [G.group]).forEach(g => g.tickets.forEach(x => { if (!x.riders.includes(id) || !decided(x)) return; st.tickets++; legKeysOf(x, id).forEach(k => { const r = legRes(x, k); if (r === 'hit' || r === 'miss') st.legs++; if (r === 'hit') st.hit++; if (r === 'miss') st.sold++; }); }));
     return `<div class="mecard">${avatar(id, 64, '', false)}<div style="flex:1;min-width:0"><div class="mename">${esc(gp.name || p.name)}</div><div class="small muted">${t.captain === id ? 'Captain of ' + esc(t.name) : t.riders.includes(id) ? 'Riding ' + esc(t.name) : 'Sitting this one out'} · ${esc(G.group.name)}</div></div>
         ${mine ? '<button class="nb" data-b="edit-me">Edit</button>' : ''}</div>
       ${mine && !inSheet ? '<p class="tiny muted" style="margin:8px 0 0">This top part is what the crew sees when they tap your avatar.</p>' : ''}
@@ -4678,7 +4719,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
         <div class="f"><label>Who to invite</label><div class="who-in">${members().map(id => `<label><input type="checkbox" name="r" value="${id}" ${d.riders.includes(id) ? 'checked' : ''} ${id === me() ? 'disabled' : ''}> ${id === me() ? 'You (Captain)' : esc(nm(id))}</label>`).join('')}</div>
           <div class="hint">Everyone checked gets an invite to Accept or Decline. Anyone left off can still watch, and join while legs are open.</div></div>
         <div class="two"><div class="f"><label for="nt-buy">Buy-in per crew member</label><div class="money"><span>$</span><input id="nt-buy" name="buy" inputmode="decimal" value="${esc(d.buy)}"></div></div>
-          <div class="f"><label>Legs per crew member</label><div class="seg"><button type="button" aria-pressed="true">1</button><button type="button" disabled title="Comes with game modes">2</button><button type="button" disabled title="Comes with game modes">3</button></div></div></div>
+          <div class="f"><label>Legs per crew member</label><div class="seg">${[1, 2, 3].map(n => `<button type="button" data-b="nt-legs" data-v="${n}" aria-pressed="${(d.legs || 1) === n}">${n}</button>`).join('')}</div><div class="hint">One buy-in either way.</div></div></div>
         <div class="f"><label for="nt-due">Deadline</label><select id="nt-due" name="due"><option value="auto" ${d.due === 'auto' ? 'selected' : ''}>Auto · 30 min before the first game</option><option value="set" ${d.due === 'set' ? 'selected' : ''}>Set a time</option></select>
           ${d.due === 'set' ? `<input type="datetime-local" name="dueAt" style="margin-top:8px" value="${esc(d.dueAt)}">` : ''}<div class="hint">If someone picks a game that starts sooner, you choose whether to move the deadline up.</div></div>
         <div class="toggle"><div><b>Odds limits</b><small>Only allow legs inside a range</small></div><button type="button" class="sw" role="switch" aria-checked="${d.limits}" data-b="nt-limits"></button></div>
@@ -4703,7 +4744,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   }
   /* C7 + timing warnings, after the pick module confirms a pick */
   function added() {
-    const t = T(), p = G.pending, e = p.entry, ch = checks(t, me(), e, { ...t.slots[me()], issue: null, atRisk: p.kind === 'atrisk' ? gameTime(e) : null }), hu = headsUp(t, me(), e), cf = conflictFor(t, me(), e);
+    const t = T(), p = G.pending, e = p.entry, ch = checks(t, pickKey(t), e, { ...t.slots[pickKey(t)], issue: null, atRisk: p.kind === 'atrisk' ? gameTime(e) : null }), hu = headsUp(t, pickKey(t), e), cf = conflictFor(t, pickKey(t), e);
     const leg = `<div class="pick"><div class="who">${esc(evName(e))} · ${esc(when(e))}</div><div class="sel">${esc(e.participant && e.participant !== 'Game' ? e.participant : 'Game')}</div><div class="bet">${esc(e.displayBet)}</div><div class="odds">${fmtOdds(e.americanOdds)}</div>${checklist(ch, true)}${hu ? `<div class="rnote gray" style="margin-top:8px">Heads-up: ${esc(hu.why)} (with ${esc(nm(hu.with))}’s leg). Your Captain will check it in DraftKings.</div>` : ''}</div>`;
     const top = t => `<div class="head"><button class="icon-btn" data-b="done-pick" aria-label="Back to the ticket">${icon('back')}</button><div class="t"><small>YOUR PICK</small><b>${t}</b></div><span></span></div>`, backBtn = '<button class="btn" data-b="done-pick">Back to the ticket</button>';
     if (p.kind === 'started') return top('Pick another leg') + `<div class="body">
@@ -4723,9 +4764,9 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     return '';
   }
   function saved() {
-    const t = T(), s = t.slots[me()], e = s.pick, ch = checks(t, me());
+    const t = T(), k = pickKey(t), s = t.slots[k], e = s.pick, ch = checks(t, k);
     return `<div class="head"><span></span><div class="t"><small>YOUR PICK</small><b>Pick added</b></div><span></span></div><div class="body">
-      <div class="done-mark">${icon('check', 26)}</div><h1 style="font-size:26px">${slotState(t, me()).color === 'green' ? 'You’re on the ticket.' : 'Your pick is in.'}</h1>
+      <div class="done-mark">${icon('check', 26)}</div><h1 style="font-size:26px">${multi(t) && legKeysOf(t, me()).some(x => !t.slots[x].pick) ? `Leg ${legNo(k)} of ${legsPer(t)} is in.` : slotState(t, me()).color === 'green' ? 'You’re on the ticket.' : 'Your pick is in.'}</h1>
       <p class="lead">${e.riderConfirmed ? 'You confirmed it’s on DraftKings, so it skips the Captain check. Your Captain still sees it when placing.' : e.validation === 'CAPTAIN_REVIEW' ? 'Sent for a manual check. Your Captain checks it manually in DraftKings while building the slip.' : slotState(t, me()).color === 'green' ? 'Your Captain will see this exact line when building the slip.' : 'It goes onto the official slip once the last step is done.'}</p>
       <div class="pick"><div class="who">${esc(evName(e))} · ${esc(when(e))}</div><div class="sel">${esc(e.participant && e.participant !== 'Game' ? e.participant : 'Game')}</div><div class="bet">${esc(e.displayBet)}</div><div class="odds">${fmtOdds(e.americanOdds)}</div>${checklist(ch, true)}</div>
       ${s.pay === 'none' && t.captain !== me() ? `<div class="need"><div class="nt">One more thing: pay your $${t.buyIn}</div><p>Your card turns green once ${esc(nm(t.captain))} confirms it.</p><div class="acts">${btn('Pay $' + t.buyIn, 'pay', '', 1)}</div></div>` : ''}
@@ -4750,16 +4791,16 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
       return sheetWrap((cap && cut > 0 ? pp.slice(0, cut) + cap + pp.slice(cut) : pp) + '<button class="btn" data-b="close" style="margin-top:10px">Close</button>', nm(id) + '’s profile');
     },
     card(id) {
-      const t = T(), s = t.slots[id], e = s.pick, placed = !!t.placedAt, tr = placed ? (t.track || {})[id] : null, rr = placed ? legRes(t, id) : null, mine = id === me(), st = slotState(t, id), cap = isCap(t) && !mine, full = G.sheet && G.sheet.full;
+      const t = T(), s = t.slots[id], ps = t.slots[ownerOf(id)], e = s.pick, placed = !!t.placedAt, tr = placed ? (t.track || {})[id] : null, rr = placed ? legRes(t, id) : null, mine = ownerOf(id) === me(), st = slotState(t, id), cap = isCap(t) && !mine, full = G.sheet && G.sheet.full;
       const hist = s.history.map(h => `<div class="kv"><span>Earlier pick</span><b>${esc(legDesc(h))} · ${fmtOdds(h.americanOdds)}</b></div>`);
       if (s.issue && s.issue.kind === 'moved') hist.push(`<div class="kv"><span>DraftKings now</span><b>${esc(s.issue.to)}</b></div>`);
       const myRx = Object.keys(s.reacts || {}).find(k => (s.reacts[k] || []).includes(me()));
       const reactBar = e && inSlip(t) ? `<div class="reacts legrx" style="margin:12px 0 4px">${!mine ? [['🔥', 'Ride'], ['💀', 'Fade'], ['❤️', ''], ['😂', '']].map(([k, l]) => `<button class="nb ${myRx === k ? 'on' : ''}" data-b="react" data-v="${id}|${k}" aria-pressed="${myRx === k}">${k}${l ? ' ' + l : ''}</button>`).join('') : ''}
           <button class="nb replychip" data-b="reply-to" data-v="${id}">${icon('chat', 15)} Reply to this leg</button></div>${!mine ? '<p class="tiny muted">One reaction per leg. Tap yours again to take it back.</p>' : ''}` : '';
-      const dkCheck = e && e.validation === 'CAPTAIN_REVIEW', ni = nudgeInfo(t, id), blocking = !e || needsMoney(s);
+      const dkCheck = e && e.validation === 'CAPTAIN_REVIEW', ni = nudgeInfo(t, id), blocking = !e || needsMoney(ps);
       const nudge = !mine && blocking && inSlip(t) ? (ni ? `<div class="nudgeinfo">${ni.by === me() ? 'You' : esc(nm(ni.by))} reminded ${esc(nm(id))} ${esc(ago(ni.at))} · anyone can remind again in ${esc(span(30 * MIN - (now() - ni.at)))}</div><button class="btn" disabled>Reminded</button>` : btn(`Remind ${nm(id)}: ${remindText(t, id)}`, 'nudge', id, 0, 'btn')) : '';
-      const extraDue = s.extra && s.extra.state !== 'confirmed';
-      return sheetWrap(`<div class="rtop">${avatar(id, 36)}<h2 style="margin:0;flex:1">${mine ? 'Your leg' : esc(nm(id)) + '’s leg'}</h2><span class="lights">${s.pay === 'confirmed' && !extraDue ? '<span class="lt g">✓ Paid</span>' : '<span class="lt y">' + (s.pay === 'sent' ? 'Sent · confirming' : extraDue ? 'Owes $' + s.extra.amount : 'Not paid') + '</span>'}</span></div>
+      const extraDue = ps.extra && ps.extra.state !== 'confirmed';
+      return sheetWrap(`<div class="rtop">${avatar(id, 36)}<h2 style="margin:0;flex:1">${mine ? 'Your leg' : esc(nm(id)) + '’s leg'}${multi(t) ? ' ' + legNo(id) : ''}</h2><span class="lights">${ps.pay === 'confirmed' && !extraDue ? '<span class="lt g">✓ Paid</span>' : '<span class="lt y">' + (ps.pay === 'sent' ? 'Sent · confirming' : extraDue ? 'Owes $' + ps.extra.amount : 'Not paid') + '</span>'}</span></div>
         ${e ? `${dkCheck && cap ? `<div class="banner neutral" style="margin-top:12px"><b>${e.uncovered ? 'Sport not covered yet' : 'DraftKings-only bet'} · check it manually in DraftKings</b><p>${esc(e.captainReason || 'Our odds data can’t check this one.')}</p></div>` : ''}
           <div class="pick ${placed ? 'r-' + (rr || (tr && tr.state === 'in' ? 'live' : 'pre')) : ''}" style="margin-top:12px"><div class="who">${esc(evName(e))} · ${esc(placed && tr && tr.state !== 'pre' && tr.score ? tr.score + (tr.state === 'in' && tr.detail ? ' · ' + tr.detail : tr.state === 'post' ? ' · Final' : '') : when(e))}</div><div class="sel">${esc(e.participant && e.participant !== 'Game' ? e.participant : 'Game')}</div><div class="bet">${esc(e.displayBet)}</div><div class="odds">${fmtOdds(e.americanOdds)}${placed ? ' ' + pill(rr ? { ...(tr || {}), result: rr } : (tr || { state: 'pre' }), e).replace('<span class="tp', '<span class="tp big') : ''}</div>${placed ? `<div class="sheetlive">${meterHTML(tr, e)}${tr && tr.text ? `<em class="trk">${esc(tr.text)}</em>` : `<em class="trk muted">${tr && tr.state === 'pre' ? 'Tracking starts at tip-off · ' + esc(timeOnly(gameTime(e))) : 'Loading the score…'}</em>`}${tr && tr.mode === 'slip' && !tr.review ? '<p class="tiny muted" style="margin:6px 0 0">ESPN can’t grade this one, so it settles from the settled slip.</p>' : ''}</div>` : ''}
           ${s.oddsNote && !t.placedAt ? `<div class="rnote okn">✓ Still on the ticket · odds ${esc(s.oddsNote)}</div>` : ''}
@@ -4768,10 +4809,10 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
           ${e.thumb ? `<details class="raw" ${dkCheck && cap ? 'open' : ''}><summary>${esc(nm(id))}’s screenshot</summary><img src="${e.thumb}" alt="${esc(nm(id))}’s screenshot" style="width:100%;border-radius:8px;margin-top:8px"></details>` : ''}</div>${hist.join('')}`
           : `<p class="lead" style="margin-top:12px">${mine ? 'You haven’t picked yet.' : 'No pick yet.'}</p>`}
         ${reactBar}
-        ${mine && !placed ? `${e ? btn('Refresh my leg · 1–2 credits', 'refresh-mine', '', 0, 'btn') : ''}${btn(e ? 'Change my pick' : 'Add your pick', 'pick', '', 1, 'btn ' + (e ? '' : 'primary'))}${(s.pay === 'none' || (s.extra && s.extra.state === 'none')) && !isCap(t) ? btn('Pay $' + (s.pay === 'none' ? t.buyIn : s.extra.amount), 'pay', '', 0, 'btn') : ''}` : ''}
+        ${mine && !placed ? `${e ? btn('Refresh my leg · 1–2 credits', 'refresh-mine', '', 0, 'btn') : ''}${btn(e ? 'Change my pick' : 'Add your pick', 'pick', id, 1, 'btn ' + (e ? '' : 'primary'))}${(ps.pay === 'none' || (ps.extra && ps.extra.state === 'none')) && !isCap(t) ? btn('Pay $' + (ps.pay === 'none' ? t.buyIn : ps.extra.amount), 'pay', '', 0, 'btn') : ''}` : ''}
         <div style="margin-top:8px">${nudge}
         ${cap ? `${dkCheck && !s.dk ? btn('Checked manually · it’s in DraftKings', 'dk-ok', id, 1, 'btn primary') + btn('Ask to repick', 'dk-repick', id, 0, 'btn') : ''}
-          ${s.pay !== 'confirmed' || extraDue ? btn('Mark paid', 'mark-paid', id, 0, 'btn') : ''}
+          ${ps.pay !== 'confirmed' || extraDue ? btn('Mark paid', 'mark-paid', ownerOf(id), 0, 'btn') : ''}
           ${e && !dkCheck ? btn('Won’t combine in DraftKings…', 'nocombine', id, 0, 'btn') : ''}
           ${full ? `${btn('Make ' + nm(id) + ' Captain', 'drop2', 'Handing off Captain', 0, 'btn')}${btn('Remove from ticket', 'remove', id, 0, 'btn danger')}`
             : `<details class="more"><summary>More options</summary>${btn('Make ' + nm(id) + ' Captain', 'drop2', 'Handing off Captain', 0, 'btn')}${btn('Remove from ticket', 'remove', id, 0, 'btn danger')}</details>`}` : ''}</div>
@@ -4913,7 +4954,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   const isOpenSlip = x => !x.settled;
   const inSlip = (x, id = me()) => x.riders.includes(id);
   /* Auto deadline with no legs yet (rehearsal / real app): the first leg anyone picks sets it. */
-  const waitsFirstLeg = x => !!x.dueFromFirst && !x.placedAt && !x.riders.some(id => x.slots[id] && x.slots[id].pick);
+  const waitsFirstLeg = x => !!x.dueFromFirst && !x.placedAt && !legKeys(x).some(id => x.slots[id] && x.slots[id].pick);
   const tonight = () => { const d = new Date(now()); d.setHours(23, 59, 0, 0); return d.getTime() - now() < HR ? d.getTime() + 24 * HR : d.getTime(); };
   const dueOpen = x => !x.placedAt && (now() < x.picksDue || (x.extendedTo && now() < x.extendedTo));
   /* Invites: the Captain checks people when making a ticket. They hold a dashed "Invited" spot until they Accept or Decline.
@@ -4945,8 +4986,8 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     const dim = id => f && segColor(x, id) !== f ? 'dim' : '';
     const inv = x.placedAt ? [] : pendingInv(x), invFirst = f === 'inv';
     const thin = `<button class="jthin" data-b="strip-j" data-v="${key}" aria-expanded="${!!open}" aria-label="${open ? 'Hide' : 'Show'} who’s in">${ids.map(id => `<i class="${segColor(x, id)} ${dim(id)}"></i>`).join('')}${inv.map(() => `<i class="inv ${f ? 'dim' : ''}"></i>`).join('')}</button>`;
-    if (!open) { const on = x.riders.filter(id => segColor(x, id) === 'green').length;
-      return thin + `<div class="jrow"><span class="jsum"><b>${on} of ${x.riders.length}</b> legs locked${inv.length ? ` · ${inv.length} invited` : ''}</span>${jtab(key, false)}</div>`; }
+    if (!open) { const lk = legKeys(x), on = lk.filter(k => x.slots[k] && legState(x, k).color === 'green').length;
+      return thin + `<div class="jrow"><span class="jsum"><b>${on} of ${lk.length}</b> legs locked${inv.length ? ` · ${inv.length} invited` : ''}</span>${jtab(key, false)}</div>`; }
     const cnt = SEG_ORDER.map(c => [c, x.riders.filter(id => segColor(x, id) === c).length]).filter(([, n]) => n);
     const lab = { green: n => `✓ ${n} locked`, yellow: n => `${n} almost`, nothing: n => `${n} nothing in` }, cl = { green: 'g', yellow: 'y', nothing: 'n' };
     return `<div class="jwrap"><div class="jscroll">${invFirst ? inv.map(id => `<span class="jcol inv"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b><small>Invited</small></span>`).join('') : ''}${ids.map(id => `<span class="jcol ${segColor(x, id)} ${dim(id)}"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b></span>`).join('')}${invFirst ? '' : inv.map(id => `<span class="jcol inv ${f ? 'dim' : ''}"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b><small>Invited</small></span>`).join('')}</div>
@@ -5227,7 +5268,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   function render() {
     const vt = G._vt; G._vt = null;
     if (PHONE && vt && document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.documentElement.dataset.vt = vt; try { document.startViewTransition(() => doRender()); return; } catch (e) { /* fall through */ } }
+      document.documentElement.dataset.vt = vt; try { const v = document.startViewTransition(() => doRender()); [v.ready, v.finished, v.updateCallbackDone].forEach(x => x && x.catch(() => {})); return; } catch (e) { /* fall through */ } }
     doRender();
   }
   let lastSheet = null, lastScreenKey = '';
@@ -5266,7 +5307,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     const t = document.createElement('div'); t.innerHTML = html; morphKids(app, t);
   }
   function doRender() {
-    const app = $('#app'); G.tickets.forEach(sweepInvites);
+    const app = $('#app'); G.tickets.forEach(x => { sweepInvites(x); ensureLegSlots(x); });
     if (G.view === 'map') { app.innerHTML = topnav() + window.BOZO_MAP.render(); window.BOZO_MAP.after(); return; }
     const msgsEl = $('#msgs'), keepScroll = msgsEl ? msgsEl.scrollTop : null, ml = $('.mlist'), mlTop = ml ? ml.scrollTop : 0, winY = window.scrollY;
     // keep your place: same screen = same scroll position after a re-render
@@ -5379,7 +5420,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     G.tickets.forEach(t => {
       if (!t.dueChecked && now() >= t.picksDue) {
         t.dueChecked = true;
-        if (LIVE || REH) { sys('Deadline · rechecking every leg on DraftKings…', t); (async () => { const legs = t.riders.filter(id => t.slots[id].pick && t.slots[id].pick.validation !== 'CAPTAIN_REVIEW'); let n = 0;
+        if (LIVE || REH) { sys('Deadline · rechecking every leg on DraftKings…', t); (async () => { const legs = legKeys(t).filter(id => t.slots[id] && t.slots[id].pick && t.slots[id].pick.validation !== 'CAPTAIN_REVIEW'); let n = 0;
           for (const id of legs) { try { applyRecheck(t, id, await PK().checkLeg(t.slots[id].pick, true)); n++; } catch (e) { break; } } t.recheckedAt = now(); sys(`Deadline check done · ${n} of ${legs.length} legs rechecked on DraftKings`, t); render(); })(); }
         else sys('Deadline · every leg was rechecked against DraftKings', t);
         const mv = G.script.moveAtDue;
@@ -5411,7 +5452,10 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   }
 
   // ---------- pick hand-off from pick.js
-  function startPick(repick) {
+  /* Which of my legs the pick flow is filling (leg 1 unless the ticket has 2–3 legs each). */
+  const pickKey = (t = T()) => G.pickLeg && ownerOf(G.pickLeg) === me() && t.slots[G.pickLeg] ? G.pickLeg : me();
+  function startPick(repick, key) {
+    G.pickLeg = key && ownerOf(key) === me() ? key : myLegKey(T());
     G.tab = 'ticket'; G.screen = 'pick'; G.sheet = null; G.repick = !!repick; render(); PK().start();
   }
   function remember(e) {
@@ -5420,7 +5464,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   function recentLookups() {
     const L = G.lookups || []; if (!L.length) return '';
     const t = T();
-    return `<div class="recent"><h3>Recent lookups</h3>${L.map((e, i) => { const cf = conflictFor(t, me(), e), started = gameTime(e) <= now();
+    return `<div class="recent"><h3>Recent lookups</h3>${L.map((e, i) => { const cf = conflictFor(t, pickKey(t), e), started = gameTime(e) <= now();
       return `<button class="leg" data-act="reuse" data-v="${i}" ${started ? 'disabled' : ''}><div class="what"><b>${esc(legDesc(e))}</b></div><div class="meta">${esc(shortGame(e))} · ${esc(when(e))} · ${fmtOdds(e.americanOdds)}${cf ? ` · <span class="flag warn">${cf.why === 'same bet' ? 'same as' : 'other side of'} ${esc(nm(cf.with))}’s pick</span>` : started ? ' · started' : ' · <span class="flag good">available</span>'}</div></button>`; }).join('')}</div>`;
   }
   function reuseLookup(i) { const e = (G.lookups || [])[Number(i)]; if (e) onPickSaved({ ...e, id: 'pick_' + Math.random().toString(36).slice(2, 8), createdAt: new Date(now()).toISOString() }); }
@@ -5432,21 +5476,21 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     else if (gt <= now()) kind = 'started';
     else if (gt - LEAD < t.picksDue) { newDue = gt - LEAD; kind = 'atrisk'; }
     G.pending = { entry: e, kind, newDue };
-    if (kind === 'ok' && !conflictFor(t, me(), e)) return commit();
+    if (kind === 'ok' && !conflictFor(t, pickKey(t), e)) return commit();
     G.screen = 'added'; render();
   }
   function commit() {
-    const t = T(), p = G.pending, s = t.slots[me()], e = p.entry;
-    if (conflictFor(t, me(), e)) return render(); // other side of someone's pick: never goes on
+    const t = T(), p = G.pending, k = pickKey(t), s = t.slots[k], e = p.entry, lt = legTag(t, k);
+    if (conflictFor(t, k, e)) return render(); // other side of someone's pick: never goes on
     if (s.pick) { s.history.push(s.pick); e.revision = s.pick.revision + 1; }
     s.pick = e; s.issue = null; s.atRisk = null; s.dk = null; s.lastRefresh = 0; s.reacts = {}; s.oddsNote = null;
     if (e.riderConfirmed) { s.dk = 'ok'; s.dkBy = me(); sys(`${nm(me())} confirmed their pick is on DraftKings (skipped the Captain check)`); } else s.dkBy = null;
     G.dismissed = (G.dismissed || []).filter(x => !['conflict', 'risk'].includes(x));
     if (p.kind === 'atrisk') {
-      s.atRisk = gameTime(e); t.riskAsks = (t.riskAsks || []).filter(r => r.id !== me()); t.riskAsks.push({ id: me(), newDue: p.newDue, done: false });
+      s.atRisk = gameTime(e); t.riskAsks = (t.riskAsks || []).filter(r => r.id !== k); t.riskAsks.push({ id: k, newDue: p.newDue, done: false });
       sys(`${nm(me())} added an early game (${shortGame(e)}, ${timeOnly(gameTime(e))}) · their leg is at risk until the ticket is placed`);
-    } else t.riskAsks = (t.riskAsks || []).filter(r => r.id !== me());
-    sys(`${nm(me())} ${s.history.length ? 'changed their pick' : 'added a pick'} · ${legDesc(e)}`);
+    } else t.riskAsks = (t.riskAsks || []).filter(r => r.id !== k);
+    sys(`${nm(me())} ${s.history.length ? 'changed their pick' : 'added a pick'}${lt} · ${legDesc(e)}`);
     if (e.validation === 'CAPTAIN_REVIEW') sys(`${nm(me())}’s pick needs a manual check in DraftKings by ${nm(t.captain)}`);
     if (t.captain === me() && e.validation === 'CAPTAIN_REVIEW') s.dk = null;
     G.pending = null; G.screen = 'saved'; render();
@@ -5502,8 +5546,8 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
       case 'settle-confirm': return settle(t, v, v === 'won' ? t.slip.payout : 0);
       case 'payout-sent': t.settled.payouts[v].sent = true; sys(`💸 ${nm(me())} sent ${nm(v)} ${money2(t.settled.amount / t.riders.length)}`); return render();
       case 'payout-received': t.settled.payouts[v].received = true; sys(`✓ ${nm(v)} got their ${money2(t.settled.amount / t.riders.length)}`); return render();
-      case 'pick': return startPick(false);
-      case 'pick-search': startPick(false); PK().start({ screen: 'search' }); return;
+      case 'pick': return startPick(false, v);
+      case 'pick-search': startPick(false, v); PK().start({ screen: 'search' }); return;
       case 'bar': G.barOpen = !G.barOpen; G.barFilter = null; G.keepChatScroll = true; return render();
       case 'pickdir': G.pickDir = !G.pickDir; G.keepChatScroll = true; return render();
       case 'reply-to': G.replyTo = v; G.pickDir = false; G.keepChatScroll = true; if (G.tab !== 'chat') { G.tab = 'chat'; G.sheet = null; G.keepChatScroll = false; } render(); setTimeout(() => { const m = $('#msg'); if (m) m.focus(); }, 0); return;
@@ -5520,7 +5564,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
         Object.keys(LN).forEach(k => { G.groupProfile[k] = { ...(G.groupProfile[k] || {}), name: G.longNames ? LN[k] : null }; }); return render(); }
       case 'edit-me': G.sheet = { k: 'editme' }; return render();
       case 'save-me': { const v2 = (($('#e-name') || {}).value || '').trim(); G.groupProfile[me()] = { ...(G.groupProfile[me()] || {}), name: v2 && v2 !== G.people[me()].name ? v2 : null }; if (v2 && v2 !== G.people[me()].name) sys(`${G.people[me()].name} goes by ${v2} in ${G.group.name}`); G.sheet = null; return render(); }
-      case 'repick': G.sheet = null; return startPick(true);
+      case 'repick': G.sheet = null; return startPick(true, v);
       case 'add-anyway': return commit();
       case 'done-pick': G.screen = 'room'; G.tab = 'ticket'; return render();
       case 'pay': G.sheet = { k: 'pay' }; return render();
@@ -5538,7 +5582,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
         sys(`${nm(me())} moved the deadline back to ${dayTime(t.picksDue)} — ${nm(mover)} needs a leg from a later game`);
         return render();
       }
-      case 'keep-line': { const s = t.slots[me()]; s.pick = { ...s.pick, line: s.issue.line, americanOdds: s.issue.price, displayBet: s.issue.toDisplay || s.issue.to.replace(/ \([^)]*\)$/, '') }; s.issue = null; sys(`${nm(me())} kept their leg at the new line`); return render(); }
+      case 'keep-line': { const s = t.slots[v && ownerOf(v) === me() ? v : me()]; s.pick = { ...s.pick, line: s.issue.line, americanOdds: s.issue.price, displayBet: s.issue.toDisplay || s.issue.to.replace(/ \([^)]*\)$/, '') }; s.issue = null; sys(`${nm(me())} kept their leg at the new line`); return render(); }
       case 'dismiss': G.dismissed = [...(G.dismissed || []), v]; return render();
       case 'dl-info': G.dlInfo = !G.dlInfo; G.keepChatScroll = true; return render();
       case 'go-group': G.at = 'group'; G.sheet = null; G.screen = 'room'; return render();
@@ -5668,7 +5712,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
         return;
       }
       case 'refresh-all': {
-        const legs = t.riders.filter(id => t.slots[id].pick && t.slots[id].pick.validation !== 'CAPTAIN_REVIEW');
+        const legs = legKeys(t).filter(id => t.slots[id] && t.slots[id].pick && t.slots[id].pick.validation !== 'CAPTAIN_REVIEW');
         if (!confirm(`Recheck all ${legs.length} legs on DraftKings? Makes sure each one is still offered at the same line. About ${legs.length * 2} Odds API credits.`)) return;
         toast('Checking every leg…');
         for (const id of legs) { try { applyRecheck(t, id, await PK().checkLeg(t.slots[id].pick, true)); } catch (e) { if (e.message === 'nokey') return; toast(e.message); } }
@@ -5676,6 +5720,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
       }
       case 'new-ticket': G.sheet = null; G.draft = { name: '', riders: members().slice(), buy: '20', due: 'auto', dueAt: '', limits: false, min: -300, max: 1000, auto: true }; G.newFrom = G.at; G.at = 'slip'; G.tab = 'ticket'; G.screen = 'new'; return render();
       case 'cancel-new': G.screen = 'room'; if (G.newFrom === 'group') G.at = 'group'; return render();
+      case 'nt-legs': readDraft(); G.draft.legs = Number(v); return render();
       case 'nt-limits': readDraft(); G.draft.limits = !G.draft.limits; return render();
       case 'create-ticket': {
         readDraft(); const d = G.draft;
@@ -5684,7 +5729,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
         const buy = Number(String(d.buy).replace(/[^\d.]/g, '')); if (!(buy > 0)) return toast('Enter a buy-in, like 20.');
         const id = 't' + (G.tickets.length + 1);
         const nt = { ...(REH && d.due !== 'set' ? { dueFromFirst: true, firstGameAt: tonight() + LEAD } : {}), id, name: d.name.trim(), captain: me(), riders: [me()], invites: Object.fromEntries(d.riders.filter(r => r !== me()).map(r => [r, { by: me(), at: now(), st: 'pending' }])), buyIn: buy, sportsbook: 'DraftKings', picksDue: d.due === 'set' && Date.parse(d.dueAt) ? Date.parse(d.dueAt) : REH ? tonight() : firstGame() - LEAD,
-          dueAuto: d.due !== 'set', dueChecked: false, oddsLimits: { on: d.limits, min: d.min, max: d.max }, autoAccept: d.auto, legsPer: 1, slots: {}, chat: [], dueMove: null, removed: [], refunds: [], learned: [], placedAt: null };
+          dueAuto: d.due !== 'set', dueChecked: false, oddsLimits: { on: d.limits, min: d.min, max: d.max }, autoAccept: d.auto, legsPer: d.legs || 1, slots: {}, chat: [], dueMove: null, removed: [], refunds: [], learned: [], placedAt: null };
         nt.slots[me()] = newSlot('confirmed');
         nt.joinReqs = []; G.group.chat.push({ id: 'g' + now(), type: 'slip', tid: id, from: me(), t: now() });
         Object.assign(nt, { nudged: {}, extendedTo: null, riskAsks: [] });
@@ -5847,7 +5892,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
 
   window.BOZO = {
     onPickSaved, recentLookups, reuseLookup,
-    conflictName(e) { const c = conflictFor(T(), me(), e); if (!c) return null; const w = c.with === me() ? 'your' : nm(c.with) + '’s'; return c.why === 'same bet' ? `Same as ${w} pick` : `Other side of ${w} pick`; },
+    conflictName(e) { const c = conflictFor(T(), pickKey(), e); if (!c) return null; const w = ownerOf(c.with) === me() ? 'your other' : nm(c.with) + '’s'; return c.why === 'same bet' ? `Same as ${w} pick` : `Other side of ${w} pick`; },
     exitPick() { G.screen = 'room'; G.tab = 'ticket'; render(); },
     openSettings(msg) { if (G.screen === 'pick') { G.sheet = { k: 'keys', v: msg }; render(); } else { G.sheet = { k: 'keys', v: msg }; render(); } },
   };
@@ -5859,9 +5904,18 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   if (PHONE && window.visualViewport) {
     const vv = window.visualViewport, root = document.documentElement;
     const fit = () => { const kb = window.innerHeight - vv.height > 120; document.body.classList.toggle('kb', kb);
-      root.style.setProperty('--vvh', vv.height + 'px'); root.style.setProperty('--vvt', vv.offsetTop + 'px');
+      root.style.setProperty('--vvh', vv.height + 'px'); root.style.setProperty('--vvt', (kb ? vv.offsetTop : 0) + 'px'); if (!kb && window.scrollY) window.scrollTo(0, 0);
       if (kb) { const m = document.getElementById('msgs'); if (m) m.scrollTop = m.scrollHeight; } };
     vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit); fit();
+  }
+  /* App-like scrolling: the page itself never moves. A drag only scrolls a box that actually has more to show
+     (the message list, a long ticket, a sheet); everywhere else it does nothing, so nothing rubber-bands or scrolls backwards. */
+  if (PHONE && !window.BOZO_NOGUARD) {
+    const canScroll = (el, dy) => { for (; el && el !== document.body; el = el.parentElement) { const cs = getComputedStyle(el);
+      if (/(auto|scroll)/.test(cs.overflowY) && el.scrollHeight > el.clientHeight + 1) { if (dy == null) return true; const top = el.scrollTop <= 0, end = el.scrollTop + el.clientHeight >= el.scrollHeight - 1; if ((dy > 0 && !top) || (dy < 0 && !end)) return true; }
+      if (/(auto|scroll)/.test(cs.overflowX) && el.scrollWidth > el.clientWidth + 1) return true; } return false; };
+    let ty = 0; document.addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
+    document.addEventListener('touchmove', e => { if (e.defaultPrevented || e.touches.length > 1 || /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return; const dy = e.touches[0].clientY - ty; if (!canScroll(e.target, dy)) e.preventDefault(); }, { passive: false });
   }
   if (PHONE) document.body.classList.add('phonemode');
   G = relink(((LIVE || REH) && loadLive()) || freshState()); if (LIVE) liveTick(); advance(); render();
