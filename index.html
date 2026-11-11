@@ -982,6 +982,23 @@ html[data-vt=fade]::view-transition-old(root){animation:vt-fade-out .14s ease bo
 .stack.open .need,.cntlist,.dlinfo,.slx,.extseg,.invbox,.whose,.lockbody,.gempty{animation:popin .22s cubic-bezier(.2,.9,.25,1) both}
 .stack.open .need:nth-child(3){animation-delay:.03s}.stack.open .need:nth-child(4){animation-delay:.06s}.stack.open .need:nth-child(n+5){animation-delay:.09s}
 @media (prefers-reduced-motion:reduce){.stack.open .need,.cntlist,.dlinfo,.slx,.extseg,.invbox,.whose,.lockbody,.gempty{animation:none}}
+/* strips: a bit taller, and empty spots get a soft fill so a row of dashes doesn't look broken */
+.jthin{gap:4px}.jthin i{height:9px;border-radius:5px}
+.jthin i.nothing{background:#fdf4e1;border:1.5px dashed #dba63c}
+.jthin i.inv,.jcol.inv>i{background:#eef0f3;border:1.5px dashed #a9aeb8}
+.jcol>i,.jscroll .jcol>i{height:9px;border-radius:5px}.jcol.nothing>i{background:#fdf4e1;border:1.5px dashed #dba63c}
+.jcnt .ivc{font:inherit;font-size:11.5px;font-weight:800;cursor:pointer;background:#f3f4f6;color:#4a505c;border:1.5px dashed #a9aeb8;padding:5px 10px;border-radius:999px;white-space:nowrap}
+.jcnt .ivc.on{box-shadow:0 0 0 2px var(--ink)}
+.recheckrow{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:12px;text-align:center}
+/* group sheet: See all morphs the cards into tiles */
+::view-transition-group(*){animation-duration:.34s;animation-timing-function:cubic-bezier(.2,.9,.25,1)}
+html[data-vt=soft]::view-transition-old(root){animation:vt-fade-out .16s ease both}html[data-vt=soft]::view-transition-new(root){animation:vt-fade-in .22s ease both}
+html[data-vt=morph]::view-transition-old(root){animation:vt-fade-out .2s ease both}html[data-vt=morph]::view-transition-new(root){animation:vt-fade-in .26s ease both}
+/* keyboard open: app sits in the visible area; tabs and the act-as bubble step aside */
+body.phonemode .phone{position:fixed;left:0;top:var(--vvt,0px);height:var(--vvh,100dvh)}
+body.phonemode.kb .tabbar,body.phonemode.kb .actas{display:none}
+.sheet{overscroll-behavior:contain;will-change:transform}
+.cl .ivt{color:var(--muted)!important;font-weight:600}
 </style></head>
 <body><main id="app" aria-live="polite"></main>
 <script>/* Real DraftKings data pulled once for the demo (The Odds API, 10 credits). */
@@ -4543,7 +4560,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     const green = t.riders.filter(id => slotState(t, id).color === 'green');
     const work = t.riders.filter(id => !green.includes(id)).sort((a, b) => (b === me()) - (a === me()) || severity(t, a) - severity(t, b));
     return header() + strip(t) + `<div class="scroll">${resultBanner(t)}${specBox(t)}${stackInScroll(t)}
-      <div class="section">${ticketBox(t)}${cap && !t.placedAt ? `<div style="text-align:right;margin-top:8px"><button class="recheck" data-b="refresh-all">${icon('refresh', 14)} Recheck all legs on DraftKings</button><div class="tiny muted">${t.recheckedAt ? 'Last checked ' + esc(ago(t.recheckedAt)) + ' · ' : ''}Makes sure every leg is still offered at the same line</div></div>` : ''}</div>
+      <div class="section">${ticketBox(t)}${cap && !t.placedAt ? `<div class="recheckrow"><button class="recheck" data-b="refresh-all">${icon('refresh', 14)} Recheck all legs on DraftKings</button><div class="tiny muted">${t.recheckedAt ? 'Last checked ' + esc(ago(t.recheckedAt)) + ' · ' : ''}Makes sure every leg is still offered at the same line</div></div>` : ''}</div>
       ${work.length && !t.placedAt && inSlip(t) ? `<div class="section"><div class="todo"><div class="todoh"><span>Still to do</span><span>${work.length} crew member${work.length > 1 ? 's' : ''}</span></div>
         <div class="todolist">${work.map(id => riderCard(t, id)).join('')}</div></div></div>` : ''}
       ${pendingInv(t).length ? `<div class="section"><h4>Invited · waiting on an answer</h4><div class="invlist">${pendingInv(t).map(id => `<div class="ivrow">${avatar(id, 28)}<span><b>${id === me() ? 'You' : esc(uname(id))}</b><small>${esc(fullName(id))} · invited ${esc(ago(t.invites[id].at))}</small></span>${cap ? `<button class="nb" data-b="inv-cancel" data-v="${id}">Remove</button>` : ''}</div>`).join('')}</div></div>` : ''}
@@ -4824,17 +4841,17 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
         const note = inv.length ? `<span class="gcn hot">${esc(uname(invOf(inv[0]).by))} invited you to ${esc(inv[0].name)}</span>` : un ? `<span class="gcn">${un} new in group chat</span>` : lastP ? `<span class="gcn">Last: ${esc(lastP.name)} · ${(lastP.settled || outcome(lastP)).result === 'won' ? 'Won' : 'Lost'}</span>` : '<span class="gcn">No tickets yet</span>';
         return { act, inv, un, note }; };
       if (all) return sheetWrap(`<div class="gshead"><h2>Your groups</h2><button class="link" data-b="gs-all" data-v="0">Swipe view</button></div>
-        <div class="ggrid">${gs.map(g => { const I = info(g); return `<button class="gtile ${g === G.group ? 'here' : ''}" data-b="pick-group" data-v="${g.id}">${groupBadge(g, 36)}<b>${esc(g.name)}</b><small>${g.members.length} members · ${I.act.length} active</small>${I.inv.length || I.un ? `<span class="gdot">${I.inv.length + I.un}</span>` : ''}</button>`; }).join('')}
-          <button class="gtile newg" data-b="new-group"><span class="plus">+</span><b>New group</b><small>Start one, invite people</small></button></div>`, 'Your groups');
+        <div class="ggrid">${gs.map(g => { const I = info(g); return `<button class="gtile ${g === G.group ? 'here' : ''}" data-b="pick-group" data-v="${g.id}" style="view-transition-name:gt-${g.id}">${groupBadge(g, 36)}<b>${esc(g.name)}</b><small>${g.members.length} members · ${I.act.length} active</small>${I.inv.length || I.un ? `<span class="gdot">${I.inv.length + I.un}</span>` : ''}</button>`; }).join('')}
+          <button class="gtile newg" data-b="new-group" style="view-transition-name:gt-new"><span class="plus">+</span><b>New group</b><small>Start one, invite people</small></button></div>`, 'Your groups');
       const idx = Math.max(0, gs.indexOf(G.group));
       return sheetWrap(`<div class="gshead"><h2>Your groups</h2><button class="link" data-b="gs-all" data-v="1">See all</button></div>
-        <div class="gcar" data-gcar data-idx="${idx}">${gs.map(g => { const I = info(g); return `<div class="gcard ${g === G.group ? 'here' : ''}" data-gid="${g.id}" style="--gc:${gcol(g)}">
+        <div class="gcar" data-gcar data-idx="${idx}">${gs.map(g => { const I = info(g); return `<div class="gcard ${g === G.group ? 'here' : ''}" data-gid="${g.id}" style="--gc:${gcol(g)};view-transition-name:gt-${g.id}">
             <div class="gctop">${groupBadge(g, 42)}<div class="gcn2"><b>${esc(g.name)}</b><small>${g.members.length} members · admin ${esc(uname(g.creator))}</small></div></div>
             <div class="gcav">${g.members.slice(0, 6).map(id => avatar(id, 26, '', false)).join('')}${g.members.length > 6 ? `<span class="more">+${g.members.length - 6}</span>` : ''}</div>
             <div class="gcst"><span><b>${I.act.length}</b> active</span><span><b>${g.tickets.filter(decided).length}</b> past</span><span><b>${g.tickets.filter(x => inSlip(x)).length}</b> you’re in</span></div>
             ${I.note}
             <button class="btn ${g === G.group ? '' : 'primary'}" data-b="pick-group" data-v="${g.id}">${g === G.group ? 'You’re here' : 'Go to ' + esc(g.name)}</button></div>`; }).join('')}
-          <div class="gcard newg" data-gid="_new"><span class="plus">+</span><b>New group</b><small>Give it a name, then share the invite link.</small><button class="btn primary" data-b="new-group">Start a group</button></div></div>
+          <div class="gcard newg" data-gid="_new" style="view-transition-name:gt-new"><span class="plus">+</span><b>New group</b><small>Give it a name, then share the invite link.</small><button class="btn primary" data-b="new-group">Start a group</button></div></div>
         <div class="gdots">${[...gs, 0].map((g, i) => `<i class="${i === idx ? 'on' : ''}"></i>`).join('')}</div>
         <p class="tiny muted" style="text-align:center;margin-top:6px">Swipe to switch. Swipe down to close.</p>`, 'Your groups');
     },
@@ -4905,16 +4922,17 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
      Counts on one line; tapping one moves those people to the front and greys the rest. */
   function stripJ(x, key) {
     const open = (G.stripOpen || {})[key], f = open && (G.stripF || {})[key];
-    let ids = sortedRiders(x); if (f) ids = [...ids.filter(id => segColor(x, id) === f), ...ids.filter(id => segColor(x, id) !== f)];
+    let ids = sortedRiders(x); if (f && f !== 'inv') ids = [...ids.filter(id => segColor(x, id) === f), ...ids.filter(id => segColor(x, id) !== f)];
     const dim = id => f && segColor(x, id) !== f ? 'dim' : '';
-    const inv = x.placedAt ? [] : pendingInv(x);
+    const inv = x.placedAt ? [] : pendingInv(x), invFirst = f === 'inv';
     const thin = `<button class="jthin" data-b="strip-j" data-v="${key}" aria-expanded="${!!open}" aria-label="${open ? 'Hide' : 'Show'} who’s in">${ids.map(id => `<i class="${segColor(x, id)} ${dim(id)}"></i>`).join('')}${inv.map(() => `<i class="inv ${f ? 'dim' : ''}"></i>`).join('')}</button>`;
     if (!open) return thin + jtab(key, false);
     const cnt = SEG_ORDER.map(c => [c, x.riders.filter(id => segColor(x, id) === c).length]).filter(([, n]) => n);
     const lab = { green: n => `✓ ${n} locked`, yellow: n => `${n} almost`, nothing: n => `${n} nothing in` }, cl = { green: 'g', yellow: 'y', nothing: 'n' };
-    return `<div class="jwrap"><div class="jscroll">${ids.map(id => `<span class="jcol ${segColor(x, id)} ${dim(id)}"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b></span>`).join('')}${inv.map(id => `<span class="jcol inv ${f ? 'dim' : ''}"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b><small>Invited</small></span>`).join('')}</div>
-      <div class="jcnt">${cnt.map(([c, n]) => `<button class="${cl[c]} ${f === c ? 'on' : ''}" data-b="strip-f" data-v="${key}|${c}" aria-pressed="${f === c}">${lab[c](n)}</button>`).join('')}${inv.length ? `<span class="ivc">${inv.length} invited</span>` : ''}</div>
-      ${f && key.startsWith('slip-') ? `<div class="cntlist">${ids.filter(id => segColor(x, id) === f).map(id => `<div class="cl">${avatar(id, 24)}<b>${id === me() ? 'You' : esc(nm(id))}</b><span class="${f === 'green' ? 'ok' : ''}">${esc(f === 'green' ? legDesc(x.slots[id].pick) : needWords(x, id))}</span>${f === 'green' ? '' : quickAct(x, id)}</div>`).join('')}</div>` : ''}
+    return `<div class="jwrap"><div class="jscroll">${invFirst ? inv.map(id => `<span class="jcol inv"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b><small>Invited</small></span>`).join('') : ''}${ids.map(id => `<span class="jcol ${segColor(x, id)} ${dim(id)}"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b></span>`).join('')}${invFirst ? '' : inv.map(id => `<span class="jcol inv ${f ? 'dim' : ''}"><i></i>${avatar(id, 32)}<b>${id === me() ? 'You' : esc(nm(id))}</b><small>Invited</small></span>`).join('')}</div>
+      <div class="jcnt">${cnt.map(([c, n]) => `<button class="${cl[c]} ${f === c ? 'on' : ''}" data-b="strip-f" data-v="${key}|${c}" aria-pressed="${f === c}">${lab[c](n)}</button>`).join('')}${inv.length ? `<button class="ivc ${f === 'inv' ? 'on' : ''}" data-b="strip-f" data-v="${key}|inv" aria-pressed="${f === 'inv'}">${inv.length} invited</button>` : ''}</div>
+      ${f === 'inv' && key.startsWith('slip-') ? `<div class="cntlist">${inv.map(id => `<div class="cl">${avatar(id, 24)}<b>${id === me() ? 'You' : esc(nm(id))}</b><span class="ivt">Invited by ${esc(uname(x.invites[id].by))} · hasn’t answered</span></div>`).join('')}</div>` : ''}
+      ${f && f !== 'inv' && key.startsWith('slip-') ? `<div class="cntlist">${ids.filter(id => segColor(x, id) === f).map(id => `<div class="cl">${avatar(id, 24)}<b>${id === me() ? 'You' : esc(nm(id))}</b><span class="${f === 'green' ? 'ok' : ''}">${esc(f === 'green' ? legDesc(x.slots[id].pick) : needWords(x, id))}</span>${f === 'green' ? '' : quickAct(x, id)}</div>`).join('')}</div>` : ''}
       ${jtab(key, true)}</div>`;
   }
   function statusChip(x) {
@@ -5222,7 +5240,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     const msgsEl = $('#msgs'), keepScroll = msgsEl ? msgsEl.scrollTop : null, ml = $('.mlist'), mlTop = ml ? ml.scrollTop : 0, winY = window.scrollY;
     // keep your place: same screen = same scroll position after a re-render
     const sKey = [G.at, G.tab, G.screen, G.active, G.actOpen, G.inv && G.inv.step, G.onb && G.onb.step, G.group && G.group.id, me()].join('|'), sc = $('#phone .screen .scroll'), scTop = sc ? sc.scrollTop : 0;
-    const oldSheet = PHONE && lastSheet && !G.sheet ? $('#phone .sheet-bg') : null;
+    const oldSheet = PHONE && lastSheet && !G.sheet && !G._sheetGone ? $('#phone .sheet-bg') : null; G._sheetGone = false;
     setApp(app, PHONE ? `<div class="phone" id="phone">${phoneInner()}${actBubble()}</div>` : topnav() + `<div class="stage"><div class="phone" id="phone">${phoneInner()}</div>${panel()}</div>`);
     if (G.screen === 'pick' && G.tab === 'ticket') PK().render();
     if (sKey === lastScreenKey && !MORPH) { const sc2 = $('#phone .screen .scroll'); if (sc2) sc2.scrollTop = scTop; } lastScreenKey = sKey;
@@ -5247,22 +5265,29 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
       document.querySelectorAll('.gdots i').forEach((d, i) => d.classList.toggle('on', i === best));
       const gid = cards[best].dataset.gid; if (gid && gid !== '_new' && gid !== G.group.id) { switchGroup(gid); G.sheet = { k: 'groups' }; render(); }
     }, 140); };
-    const sh = car.closest('.sheet'); if (sh._bound) return; sh._bound = true; let y0 = null, dy = 0;
-    const down = e => { y0 = (e.touches ? e.touches[0] : e).clientY; dy = 0; sh.style.transition = 'none'; };
-    const move = e => { if (y0 == null) return; dy = Math.max(0, (e.touches ? e.touches[0] : e).clientY - y0); if (dy > 4) sh.style.transform = `translateY(${dy}px)`; };
-    const up = () => { if (y0 == null) return; y0 = null; sh.style.transition = 'transform .2s'; if (dy > 90) { sh.style.transform = 'translateY(100%)'; setTimeout(() => act('close'), 180); } else sh.style.transform = ''; };
-    const grab = sh.querySelector('.grab'), head = sh.querySelector('.gshead');
-    [grab, head].forEach(el => { if (!el) return; el.addEventListener('touchstart', down, { passive: true }); el.addEventListener('mousedown', down); });
-    sh.addEventListener('touchmove', move, { passive: true }); window.addEventListener('mousemove', move); sh.addEventListener('touchend', up); window.addEventListener('mouseup', up, { once: true });
   }
-  /* Any sheet: drag its handle down to close (phone). */
+  /* Any sheet: drag it down to close, like iOS. Starts from anywhere on the sheet once its content is scrolled to the top.
+     Only the sheet moves (the page behind never shifts), the dim fades with it, and a quick flick closes it too. */
   function bindSheetDrag() {
-    const sh = $('#phone .sheet-bg:not(.out) .sheet'); if (!sh || $('[data-gcar]')) return;
-    const grab = sh.querySelector('.grab'); if (!grab || sh._bound) return; sh._bound = true; let y0 = null, dy = 0;
-    const pt = e => (e.touches ? e.touches[0] : e).clientY;
-    grab.addEventListener('touchstart', e => { y0 = pt(e); dy = 0; sh.style.transition = 'none'; }, { passive: true });
-    sh.addEventListener('touchmove', e => { if (y0 == null) return; dy = Math.max(0, pt(e) - y0); sh.style.transform = `translateY(${dy}px)`; }, { passive: true });
-    sh.addEventListener('touchend', () => { if (y0 == null) return; y0 = null; sh.style.transition = 'transform .2s'; if (dy > 80) { sh.style.transform = 'translateY(100%)'; setTimeout(() => act('close'), 160); } else sh.style.transform = ''; });
+    const bg = $('#phone .sheet-bg:not(.out)'), sh = bg && bg.querySelector('.sheet'); if (!sh || sh._bound) return; sh._bound = true;
+    let y0 = null, x0 = 0, dy = 0, t0 = 0, drag = false, lock = null;
+    const P = e => e.touches ? e.touches[0] : e;
+    bg.addEventListener('touchmove', e => { if (e.target === bg) e.preventDefault(); }, { passive: false });
+    sh.addEventListener('touchstart', e => { const p = P(e); y0 = p.clientY; x0 = p.clientX; dy = 0; t0 = Date.now(); drag = false; lock = null; }, { passive: true });
+    sh.addEventListener('touchmove', e => {
+      if (y0 == null) return; const p = P(e), my = p.clientY - y0, mx = p.clientX - x0;
+      if (lock == null && (Math.abs(my) > 6 || Math.abs(mx) > 6)) lock = Math.abs(my) > Math.abs(mx) ? 'y' : 'x';
+      if (lock !== 'y') return;
+      if (!drag) { if (my > 0 && sh.scrollTop <= 0) { drag = true; y0 = p.clientY; t0 = Date.now(); sh.style.transition = 'none'; bg.style.transition = 'none'; } else return; }
+      e.preventDefault(); dy = Math.max(0, p.clientY - y0);
+      sh.style.transform = `translateY(${dy}px)`; bg.style.backgroundColor = `rgba(29,32,27,${(0.35 * (1 - Math.min(1, dy / sh.offsetHeight))).toFixed(3)})`;
+    }, { passive: false });
+    const end = () => {
+      if (y0 == null) return; y0 = null; if (!drag) return; drag = false; const v = dy / Math.max(1, Date.now() - t0);
+      if (dy > 110 || (v > 0.5 && dy > 30)) { sh.style.transition = 'transform .22s cubic-bezier(.2,.8,.3,1)'; bg.style.transition = 'background-color .22s'; sh.style.transform = 'translateY(105%)'; bg.style.backgroundColor = 'rgba(29,32,27,0)'; G._sheetGone = true; setTimeout(() => act('close'), 210); }
+      else { sh.style.transition = 'transform .28s cubic-bezier(.2,.9,.25,1)'; bg.style.transition = 'background-color .28s'; sh.style.transform = ''; bg.style.backgroundColor = ''; }
+    };
+    sh.addEventListener('touchend', end); sh.addEventListener('touchcancel', end);
   }
   function bindForms() {
     bindGroupSheet(); if (PHONE) bindSheetDrag();
@@ -5397,7 +5422,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   }
 
   // ---------- actions
-  const NAV = { 'open-slip': 'fwd', 'go-gchat': 'fwd', 'go-me': 'fwd', 'new-ticket': 'fwd', 'act-open': 'fwd', 'inv-accept': 'fwd', 'join-slip': 'fwd', 'go-group': 'back', 'act-close': 'back', 'cancel-new': 'back', 'tab': 'fade', 'pick-group': 'fade', 'create-group': 'fade', 'create-ticket': 'fwd' };
+  const NAV = { 'gs-all': 'morph', 'strip-j': 'soft', 'strip-f': 'soft', 'gstack': 'soft', 'stack': 'soft', 'lock': 'soft', 'dl-info': 'soft', 'ext-toggle': 'soft', 'bar': 'soft', 'bar-filter': 'soft', 'open-slip': 'fwd', 'go-gchat': 'fwd', 'go-me': 'fwd', 'new-ticket': 'fwd', 'act-open': 'fwd', 'inv-accept': 'fwd', 'join-slip': 'fwd', 'go-group': 'back', 'act-close': 'back', 'cancel-new': 'back', 'tab': 'fade', 'pick-group': 'fade', 'create-group': 'fade', 'create-ticket': 'fwd' };
   async function act(a, v) {
     const t = T(); if (NAV[a]) G._vt = NAV[a];
     if (a === 'strip-j' && !(G.stripOpen || {})[v]) G._stripAnim = v;
@@ -5794,6 +5819,14 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
 
   document.body.classList.add(window.BOZO_TAB || 'tabB'); // strip tab style (mock options A/B/C)
   rehKeysFromLink();
+  /* Phone keyboard: keep the app pinned to the visible area so only the composer rises; the header stays, the tab bar hides. */
+  if (PHONE && window.visualViewport) {
+    const vv = window.visualViewport, root = document.documentElement;
+    const fit = () => { const kb = window.innerHeight - vv.height > 120; document.body.classList.toggle('kb', kb);
+      root.style.setProperty('--vvh', vv.height + 'px'); root.style.setProperty('--vvt', vv.offsetTop + 'px');
+      if (kb) { const m = document.getElementById('msgs'); if (m) m.scrollTop = m.scrollHeight; } };
+    vv.addEventListener('resize', fit); vv.addEventListener('scroll', fit); fit();
+  }
   if (PHONE) document.body.classList.add('phonemode');
   G = relink(((LIVE || REH) && loadLive()) || freshState()); if (LIVE) liveTick(); advance(); render();
   setInterval(() => {
