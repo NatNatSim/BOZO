@@ -971,6 +971,7 @@ html[data-vt=fade]::view-transition-old(root){animation:vt-fade-out .14s ease bo
 .asrow.on{border:1.5px solid var(--ink);background:#f6f7f3}.ast{flex:1;min-width:0}.ast b{display:block;font-size:15.5px}.ast b i{font-style:normal;font-size:11px;font-weight:800;background:var(--ink);color:#fff;border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:2px}
 .ast small{display:block;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.asrow em{font-style:normal;font-size:12px;font-weight:800;color:var(--ink)}
 .pl.ok{color:var(--good)}.pl.bad{color:#9c3d33}.pl.wait{color:#8a6418}
+.codehelp{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:14px;font-size:14px;color:var(--muted)}.codehelp .link{font-weight:700;font-size:14px}
 </style></head>
 <body><main id="app" aria-live="polite"></main>
 <script>/* Real DraftKings data pulled once for the demo (The Odds API, 10 credits). */
@@ -5035,11 +5036,12 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     if (O.step === 'name') return wrap(`<h1 class="onbh">Get set up</h1><p class="lead">Your group sees your username, with your real name under it.</p>
       <div class="f"><label for="o-first">First name</label><input id="o-first" autocomplete="given-name" value="${esc(O.first || '')}"></div><div class="f"><label for="o-last">Last name</label><input id="o-last" autocomplete="family-name" value="${esc(O.last || '')}"></div>
       <div class="f"><label for="o-user">Username</label><input id="o-user" autocapitalize="off" autocomplete="username" value="${esc(O.user || '')}" placeholder="e.g. simmy"></div><button class="btn primary" data-b="onb-next" data-v="email">Next</button>`);
-    if (O.step === 'email') return wrap(`<h1 class="onbh">Your email</h1><p class="lead">We’ll send a 6-digit code. That’s your login, no password.</p>
+    if (O.step === 'email') return wrap(`<h1 class="onbh">Your email</h1><p class="lead">We’ll send a 6-digit code. That’s your login, no password.</p><div class="banner neutral" style="margin:0 0 12px"><b>Rehearsal</b><p>No email actually goes out yet. On the next screen, any 6 digits work.</p></div>
       <div class="f"><label for="o-email">Email</label><input id="o-email" type="email" autocomplete="email" value="${esc(O.email || '')}"></div><button class="btn primary" data-b="onb-next" data-v="code">Send code</button>`);
-    if (O.step === 'code') return wrap(`<h1 class="onbh">Enter the code</h1><p class="lead">Sent to ${esc(O.email || 'your email')}</p>
+    if (O.step === 'code') return wrap(`<h1 class="onbh">Enter the code</h1><p class="lead">Sent to ${esc(O.email || 'your email')}</p><div class="banner neutral" style="margin:0 0 12px"><b>Rehearsal: no email is sent</b><p>Type any 6 digits, like 123456. Real codes come with the server.</p></div>
       <div class="f"><label for="o-code">6-digit code</label><input id="o-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="••••••" style="letter-spacing:8px;font-size:22px;font-weight:800"></div>
-      <button class="btn primary" data-b="onb-next" data-v="group">Continue</button><p class="tiny muted">Rehearsal: any 6 digits work.</p>`);
+      <button class="btn primary" data-b="onb-next" data-v="group">Continue</button>
+      <div class="codehelp"><span>Didn’t get it?</span><button class="link" data-b="onb-resend">Send it again</button><button class="link" data-b="onb-next" data-v="email">Use a different email</button></div>`);
     if (O.step === 'group') return wrap(`<h1 class="onbh">Start a group</h1><p class="lead">The people you bet with. Every ticket lives in a group.</p>
       <div class="f"><label for="o-group">Group name</label><input id="o-group" value="${esc(O.group || '')}" placeholder="e.g. The Boys"></div><button class="btn primary" data-b="onb-next" data-v="crew">Create group</button>`);
     if (O.step === 'crew') return wrap(`<h1 class="onbh">Add your crew</h1><p class="lead">For real, they’d join from your invite link. For this rehearsal, add them here. You’ll act as each of them.</p>
@@ -5062,7 +5064,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
       if (O.crew.some(c => c[2] === u) || u === userId(O.user)) return toast('That username’s taken in this group.'); O.crew.push([f, '', u]); return; }
     if (O.step === 'name') { O.first = val('o-first'); O.last = val('o-last'); O.user = userId(val('o-user') || O.first); if (!O.first || !O.user) return toast('Add your first name and a username.'); }
     if (O.step === 'email') { O.email = val('o-email'); if (!/.+@.+\..+/.test(O.email)) return toast('Enter your email.'); toast('Code sent (rehearsal: any 6 digits).'); }
-    if (O.step === 'code' && !/^\d{6}$/.test(val('o-code'))) return toast('Enter the 6-digit code.');
+    if (O.step === 'code' && v !== 'email' && !/^\d{6}$/.test(val('o-code'))) return toast('Type any 6 digits, like 123456.');
     if (O.step === 'group') { O.group = val('o-group'); if (!O.group) return toast('Name the group.'); }
     if (O.step === 'keys') { const k = val('o-k'), ak = val('o-a'); if (k || ak) PK().setKeys(k || PK().S.key, ak || PK().S.aiKey); }
     if (v !== 'done') { O.step = v; return; }
@@ -5361,6 +5363,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
       case 'role': switchTo(v === 'captain' ? T().captain : 'nate'); return render();
       case 'tab': if (v !== G.tab) G.stack = STACK_DEFAULT(v); G.actOpen = false; if (v === 'ticket' && G.tab === 'ticket' && ['saved', 'added'].includes(G.screen)) G.screen = 'room'; G.tab = v; G.sheet = null; G.rxOpen = null; return render();
       case 'close': G.sheet = null; G.menu = null; return render();
+      case 'onb-resend': return toast('Sent again. (Rehearsal: any 6 digits work.)');
       case 'onb-next': case 'onb-back': case 'onb-add': case 'onb-rm': case 'onb-sample': onbAct(a, v); G._vt = a === 'onb-back' ? 'back' : a === 'onb-next' ? 'fwd' : null; return render();
       case 'actas': G.sheet = { k: 'actas' }; return render();
       case 'actas-pick': { const at0 = G.at, act0 = G.active, inv0 = G.inv; G.sheet = null; if (v !== me()) { switchTo(v); G.at = at0 === 'onb' ? 'group' : at0; G.active = act0; if (G.at === 'slip' && !G.screen) G.screen = 'room'; toast(`Now acting as ${nm(v)}`); } G._vt = 'fade'; return render(); }
