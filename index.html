@@ -964,7 +964,7 @@ html[data-vt=fade]::view-transition-old(root){animation:vt-fade-out .14s ease bo
 /* act-as bubble + sheet */
 .actas{all:unset;position:absolute;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:9;border-radius:50%;cursor:pointer;box-shadow:0 6px 18px #0000003a,0 0 0 3px #fff}
 .actas.withtabs{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
-.actas .sw{position:absolute;right:-4px;bottom:-4px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff}
+.actas .swp{position:absolute;right:-4px;bottom:-4px;width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #fff}
 .actas.other{box-shadow:0 6px 18px #0000003a,0 0 0 3px #fff,0 0 0 5px #e2b54d}
 .aslist{display:flex;flex-direction:column;gap:6px}
 .asrow{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:14px}
@@ -972,6 +972,16 @@ html[data-vt=fade]::view-transition-old(root){animation:vt-fade-out .14s ease bo
 .ast small{display:block;font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.asrow em{font-style:normal;font-size:12px;font-weight:800;color:var(--ink)}
 .pl.ok{color:var(--good)}.pl.bad{color:#9c3d33}.pl.wait{color:#8a6418}
 .codehelp{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:14px;font-size:14px;color:var(--muted)}.codehelp .link{font-weight:700;font-size:14px}
+/* smooth state changes (the page now updates in place, so these transitions actually run) */
+.sw{transition:background-color .22s ease}.sw::after{transition:left .24s cubic-bezier(.3,1.3,.5,1),width .15s}
+.sw:active::after{width:26px}.sw[aria-checked=true]:active::after{left:17px}
+.seg button,.jcnt button,.stc,.nb,.btn,.chip,.cnt,.gsw,.asrow,.gtile,.trow,.rcard,.need,.sthin,.pm,.jtab{transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease,opacity .2s ease,transform .12s ease}
+.jcol,.jthin i,.jcol .av{transition:opacity .25s ease,box-shadow .25s ease,background-color .25s ease}
+@keyframes popin{from{opacity:0;transform:translateY(-4px)}}
+@keyframes fadein{from{opacity:0}}
+.stack.open .need,.cntlist,.dlinfo,.slx,.extseg,.invbox,.whose,.lockbody,.gempty{animation:popin .22s cubic-bezier(.2,.9,.25,1) both}
+.stack.open .need:nth-child(3){animation-delay:.03s}.stack.open .need:nth-child(4){animation-delay:.06s}.stack.open .need:nth-child(n+5){animation-delay:.09s}
+@media (prefers-reduced-motion:reduce){.stack.open .need,.cntlist,.dlinfo,.slx,.extseg,.invbox,.whose,.lockbody,.gempty{animation:none}}
 </style></head>
 <body><main id="app" aria-live="polite"></main>
 <script>/* Real DraftKings data pulled once for the demo (The Odds API, 10 credits). */
@@ -4092,7 +4102,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   // ---------- pieces
   const btn = (label, act, v = '', primary, cls = '') => `<button class="nb ${primary ? 'p' : ''} ${cls}" data-b="${act}" data-v="${esc(v)}">${esc(label)}</button>`;
   function needCard(n) {
-    return `<div class="need${n.x ? ' hasx' : ''} ${n.kind === 'info' ? 'info' : n.kind === 'good' ? 'good' : ''}">${n.open ? `<button class="needbody" data-b="open-card" data-v="${n.open}"><span class="nt">${esc(n.title)}</span><span class="nbet">${esc(n.body)}</span><span class="tiny muted">Tap to see the full bet ›</span></button>` : `<div class="nt">${esc(n.title)}</div>${n.body ? `<p>${esc(n.body)}</p>` : ''}`}
+    return `<div data-key="need-${esc(n.id || n.title)}" class="need${n.x ? ' hasx' : ''} ${n.kind === 'info' ? 'info' : n.kind === 'good' ? 'good' : ''}">${n.open ? `<button class="needbody" data-b="open-card" data-v="${n.open}"><span class="nt">${esc(n.title)}</span><span class="nbet">${esc(n.body)}</span><span class="tiny muted">Tap to see the full bet ›</span></button>` : `<div class="nt">${esc(n.title)}</div>${n.body ? `<p>${esc(n.body)}</p>` : ''}`}
       ${n.x ? `<button class="nx" data-b="dismiss" data-v="${esc(n.x)}" aria-label="Dismiss">×</button>` : ''}
       ${n.acts.length ? `<div class="acts">${n.acts.map(a => a[4] === 'link' ? `<button class="lk" data-b="${a[1]}" data-v="${esc(a[2])}">${esc(a[0])}</button>` : a[4] === 'split' ? `<span class="split">${btn(a[0], a[1], a[2], a[3])}<button class="nb p" data-b="extend-menu" data-v="${esc(a[2].split('|')[0])}" aria-label="More time options">▾</button></span>` : btn(a[0], a[1], a[2], a[3])).join('')}</div>` : ''}${n.html || ''}</div>`;
   }
@@ -4935,7 +4945,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     const res = past ? (x.settled ? x.settled.result : outcome(x).result) : null, miss = x.riders.filter(id => legRes(x, id) === 'miss').length;
     const meta = past ? `${res === 'won' ? 'Paid ' + money2((x.settled || {}).amount || (x.slip || {}).payout || 0) : miss + ' leg' + (miss === 1 ? '' : 's') + ' missed'} · ${x.riders.length} crew · $${x.buyIn} each`
       : `${esc(capT)} · ${x.riders.length} crew · $${x.buyIn} each`;
-    return `<div class="slipcard ${iv ? 'invd' : ''} ${past ? 'past' : ''}">${iv ? `<div class="invline">${avatar(iv.by, 20, '', false)}<span><b>${esc(uname(iv.by))}</b> invited you</span></div>` : ''}
+    return `<div data-key="card-${x.id}" class="slipcard ${iv ? 'invd' : ''} ${past ? 'past' : ''}">${iv ? `<div class="invline">${avatar(iv.by, 20, '', false)}<span><b>${esc(uname(iv.by))}</b> invited you</span></div>` : ''}
       <div class="sctop"><button class="scbody" data-b="open-slip" data-v="${x.id}"><span class="sct"><b>${esc(x.name)}</b></span></button><span class="scst">${statusChip(x)}</span></div>
       <button class="scbody" data-b="open-slip" data-v="${x.id}"><span class="scm">${meta}</span></button>
       ${past ? `<button class="scbody" data-b="open-slip" data-v="${x.id}"><span class="scm when">${esc(dayTime(x.placedAt))}</span></button>` : `<div class="scbody2" data-b="open-slip" data-v="${x.id}">${timeBlock(x)}</div>`}
@@ -5079,7 +5089,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   function actBubble() {
     if (!REH || !G.reh || !G.reh.owner || G.inv || G.at === 'onb' || (G.at === 'slip' && ['new', 'pick', 'placeslip', 'added'].includes(G.screen) && G.tab === 'ticket')) return '';
     const low = G.at === 'slip' && G.screen !== 'pick';
-    return `<button class="actas ${low ? 'withtabs' : ''} ${me() !== G.reh.owner ? 'other' : ''}" data-b="actas" aria-label="Acting as ${esc(nm(me()))}. Switch person">${avatar(me(), 40, '', false)}<span class="sw"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 5h9l-2.5-2.5M13 11H4l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`;
+    return `<button class="actas ${low ? 'withtabs' : ''} ${me() !== G.reh.owner ? 'other' : ''}" data-b="actas" aria-label="Acting as ${esc(nm(me()))}. Switch person">${avatar(me(), 40, '', false)}<span class="swp"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M3 5h9l-2.5-2.5M13 11H4l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>`;
   }
   /* One line per person: where they stand on the ticket you're looking at. */
   function personLine(id) {
@@ -5097,7 +5107,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     const t = G.at === 'slip' ? T() : null, ids = [...members()].sort((a, b) => (b === G.reh.owner) - (a === G.reh.owner));
     return sheetWrap(`<div class="gshead"><h2>Act as</h2>${t && !t.stub ? `<span class="tiny muted">${esc(t.name)}</span>` : ''}</div>
       <p class="tiny muted" style="margin:-6px 0 10px">Rehearsal only: tap anyone to see the app as them. Everything they do is real on this ticket.</p>
-      <div class="aslist">${ids.map(id => `<button class="asrow ${id === me() ? 'on' : ''}" data-b="actas-pick" data-v="${id}">${avatar(id, 38, '', false)}<span class="ast"><b>${esc(nm(id))}${id === G.reh.owner ? ' <i>you</i>' : ''}</b><small>@${esc((G.people[id] || {}).user || id)} · ${personLine(id)}</small></span>${id === me() ? '<em>Now</em>' : ''}</button>`).join('')}</div>
+      <div class="aslist">${ids.map(id => `<button data-key="as-${id}" class="asrow ${id === me() ? 'on' : ''}" data-b="actas-pick" data-v="${id}">${avatar(id, 38, '', false)}<span class="ast"><b>${esc(nm(id))}${id === G.reh.owner ? ' <i>you</i>' : ''}</b><small>@${esc((G.people[id] || {}).user || id)} · ${personLine(id)}</small></span>${id === me() ? '<em>Now</em>' : ''}</button>`).join('')}</div>
       <div class="addrow" style="margin-top:12px"><input id="as-f" placeholder="Add someone · first name" autocomplete="off"><button class="btn" data-b="actas-add">Add</button></div>
       <p class="tiny muted">Adding someone here is like them joining from your invite link.</p>`, 'Act as');
   }
@@ -5172,6 +5182,40 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     doRender();
   }
   let lastSheet = null, lastScreenKey = '';
+  /* Morph: update the page in place instead of rebuilding it, so switches slide, colors fade and every scroll box stays exactly where it was. */
+  const MORPH = PHONE || !!window.BOZO_MORPH;
+  const mKey = n => n.nodeType === 1 ? (n.id || n.getAttribute('data-key') || null) : null;
+  function syncAttrs(a, b) {
+    for (const { name } of [...a.attributes]) if (!b.hasAttribute(name)) a.removeAttribute(name);
+    for (const { name, value } of [...b.attributes]) if (a.getAttribute(name) !== value) a.setAttribute(name, value);
+    const tag = a.tagName;
+    if ((tag === 'INPUT' || tag === 'TEXTAREA') && document.activeElement !== a) {
+      if (a.type === 'checkbox' || a.type === 'radio') a.checked = b.hasAttribute('checked');
+      else { const v = tag === 'TEXTAREA' ? b.value : (b.getAttribute('value') || ''); if (a.value !== v && a.type !== 'file') a.value = v; }
+    }
+  }
+  function morphNode(a, b) {
+    if (a.nodeType !== b.nodeType || (a.nodeType === 1 && a.tagName !== b.tagName)) { a.replaceWith(b); return; }
+    if (a.nodeType !== 1) { if (a.nodeValue !== b.nodeValue) a.nodeValue = b.nodeValue; return; }
+    syncAttrs(a, b);
+    if (a.id === 'pick-root') return; // the pick flow draws itself
+    morphKids(a, b);
+    if (a.tagName === 'SELECT' && document.activeElement !== a) { const o = [...b.options].find(x => x.hasAttribute('selected')); a.value = o ? o.value : (a.options[0] || {}).value; }
+  }
+  function morphKids(a, b) {
+    const nk = [...b.childNodes];
+    nk.forEach((n, i) => {
+      let cur = a.childNodes[i]; const k = mKey(n);
+      if (k) { const hit = [...a.childNodes].slice(i).find(c => mKey(c) === k); if (hit) { if (hit !== cur) a.insertBefore(hit, cur || null); morphNode(hit, n); return; } }
+      if (cur && !mKey(cur) && cur.nodeType === n.nodeType && (n.nodeType !== 1 || cur.tagName === n.tagName)) { morphNode(cur, n); return; }
+      a.insertBefore(n, cur || null);
+    });
+    while (a.childNodes.length > nk.length) a.removeChild(a.lastChild);
+  }
+  function setApp(app, html) {
+    if (!MORPH || !app.firstChild) { app.innerHTML = html; return; }
+    const t = document.createElement('div'); t.innerHTML = html; morphKids(app, t);
+  }
   function doRender() {
     const app = $('#app'); G.tickets.forEach(sweepInvites);
     if (G.view === 'map') { app.innerHTML = topnav() + window.BOZO_MAP.render(); window.BOZO_MAP.after(); return; }
@@ -5179,9 +5223,9 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
     // keep your place: same screen = same scroll position after a re-render
     const sKey = [G.at, G.tab, G.screen, G.active, G.actOpen, G.inv && G.inv.step, G.onb && G.onb.step, G.group && G.group.id, me()].join('|'), sc = $('#phone .screen .scroll'), scTop = sc ? sc.scrollTop : 0;
     const oldSheet = PHONE && lastSheet && !G.sheet ? $('#phone .sheet-bg') : null;
-    app.innerHTML = PHONE ? `<div class="phone" id="phone">${phoneInner()}${actBubble()}</div>` : topnav() + `<div class="stage"><div class="phone" id="phone">${phoneInner()}</div>${panel()}</div>`;
+    setApp(app, PHONE ? `<div class="phone" id="phone">${phoneInner()}${actBubble()}</div>` : topnav() + `<div class="stage"><div class="phone" id="phone">${phoneInner()}</div>${panel()}</div>`);
     if (G.screen === 'pick' && G.tab === 'ticket') PK().render();
-    if (sKey === lastScreenKey) { const sc2 = $('#phone .screen .scroll'); if (sc2) sc2.scrollTop = scTop; } lastScreenKey = sKey;
+    if (sKey === lastScreenKey && !MORPH) { const sc2 = $('#phone .screen .scroll'); if (sc2) sc2.scrollTop = scTop; } lastScreenKey = sKey;
     const sk = G.sheet ? G.sheet.k + '|' + (G.sheet.v || '') : null; if (sk && sk !== lastSheet) { const bg = $('#phone .sheet-bg'); if (bg) bg.classList.add('in'); }
     if (oldSheet) { oldSheet.classList.remove('in'); oldSheet.classList.add('out'); oldSheet.removeAttribute('data-b'); $('#phone').appendChild(oldSheet); setTimeout(() => oldSheet.remove(), 220); }
     lastSheet = sk;
@@ -5203,7 +5247,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
       document.querySelectorAll('.gdots i').forEach((d, i) => d.classList.toggle('on', i === best));
       const gid = cards[best].dataset.gid; if (gid && gid !== '_new' && gid !== G.group.id) { switchGroup(gid); G.sheet = { k: 'groups' }; render(); }
     }, 140); };
-    const sh = car.closest('.sheet'); let y0 = null, dy = 0;
+    const sh = car.closest('.sheet'); if (sh._bound) return; sh._bound = true; let y0 = null, dy = 0;
     const down = e => { y0 = (e.touches ? e.touches[0] : e).clientY; dy = 0; sh.style.transition = 'none'; };
     const move = e => { if (y0 == null) return; dy = Math.max(0, (e.touches ? e.touches[0] : e).clientY - y0); if (dy > 4) sh.style.transform = `translateY(${dy}px)`; };
     const up = () => { if (y0 == null) return; y0 = null; sh.style.transition = 'transform .2s'; if (dy > 90) { sh.style.transform = 'translateY(100%)'; setTimeout(() => act('close'), 180); } else sh.style.transform = ''; };
@@ -5214,7 +5258,7 @@ window.BOZO_REH = { key: 'bozo.reh.v1' };
   /* Any sheet: drag its handle down to close (phone). */
   function bindSheetDrag() {
     const sh = $('#phone .sheet-bg:not(.out) .sheet'); if (!sh || $('[data-gcar]')) return;
-    const grab = sh.querySelector('.grab'); if (!grab) return; let y0 = null, dy = 0;
+    const grab = sh.querySelector('.grab'); if (!grab || sh._bound) return; sh._bound = true; let y0 = null, dy = 0;
     const pt = e => (e.touches ? e.touches[0] : e).clientY;
     grab.addEventListener('touchstart', e => { y0 = pt(e); dy = 0; sh.style.transition = 'none'; }, { passive: true });
     sh.addEventListener('touchmove', e => { if (y0 == null) return; dy = Math.max(0, pt(e) - y0); sh.style.transform = `translateY(${dy}px)`; }, { passive: true });
